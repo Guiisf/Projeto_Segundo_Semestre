@@ -129,7 +129,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-       
+        new TelaCadastroUsuario().setVisible(true);
       
     }//GEN-LAST:event_btnCadastroActionPerformed
 
@@ -139,9 +139,11 @@ public class login extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
           if(txtUsuario.getText().equals("usuario")&&txtSenha.getText().equals("1234")){
-           JOptionPane.showConfirmDialog(null, "Bem Vindo");
+           JOptionPane.showMessageDialog(null, "Bem Vindo");
+            new TelaInicial().setVisible(true);
+            
        }else{
-              JOptionPane.showConfirmDialog(null, "Acesso Negado");
+              JOptionPane.showMessageDialog(null, "Acesso Negado");
        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

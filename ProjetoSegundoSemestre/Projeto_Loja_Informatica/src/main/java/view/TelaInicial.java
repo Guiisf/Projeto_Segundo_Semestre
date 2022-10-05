@@ -26,18 +26,15 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArquivo = new javax.swing.JMenu();
         jmiSair = new javax.swing.JMenuItem();
         jmClientes = new javax.swing.JMenu();
         jmiCadastrar = new javax.swing.JMenuItem();
-        jmiAlterar = new javax.swing.JMenuItem();
-        jmiExcluir = new javax.swing.JMenuItem();
         jmiPesq = new javax.swing.JMenuItem();
         jmUsuarios = new javax.swing.JMenu();
         jmiCadUsu = new javax.swing.JMenuItem();
-        jmiAlteUsu = new javax.swing.JMenuItem();
-        jmiExcUsu = new javax.swing.JMenuItem();
         jmiPesqUsu = new javax.swing.JMenuItem();
         jmProdutos = new javax.swing.JMenu();
         jmiCadProd = new javax.swing.JMenuItem();
@@ -46,6 +43,14 @@ public class TelaInicial extends javax.swing.JFrame {
         jmiSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButton1.setText("Vender");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jmArquivo.setText("Arquivo");
 
@@ -69,13 +74,12 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         jmClientes.add(jmiCadastrar);
 
-        jmiAlterar.setText("Alterar");
-        jmClientes.add(jmiAlterar);
-
-        jmiExcluir.setText("Excluir");
-        jmClientes.add(jmiExcluir);
-
-        jmiPesq.setText("Pesquisar");
+        jmiPesq.setText("Consulta");
+        jmiPesq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPesqActionPerformed(evt);
+            }
+        });
         jmClientes.add(jmiPesq);
 
         jMenuBar1.add(jmClientes);
@@ -89,12 +93,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jmiCadUsu.setText("Cadastro");
         jmUsuarios.add(jmiCadUsu);
-
-        jmiAlteUsu.setText("Alterar");
-        jmUsuarios.add(jmiAlteUsu);
-
-        jmiExcUsu.setText("Excluir");
-        jmUsuarios.add(jmiExcUsu);
 
         jmiPesqUsu.setText("Pesquisar");
         jmUsuarios.add(jmiPesqUsu);
@@ -129,11 +127,17 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jButton1)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jButton1)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,6 +158,14 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jmUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuariosActionPerformed
 
     }//GEN-LAST:event_jmUsuariosActionPerformed
+
+    private void jmiPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPesqActionPerformed
+        new TelaConsultaCliente().setVisible(true);
+    }//GEN-LAST:event_jmiPesqActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       new TelaVendas().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,20 +203,17 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jmArquivo;
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmProdutos;
     private javax.swing.JMenu jmSobre;
     private javax.swing.JMenu jmUsuarios;
-    private javax.swing.JMenuItem jmiAlteUsu;
-    private javax.swing.JMenuItem jmiAlterar;
     private javax.swing.JMenuItem jmiCadProd;
     private javax.swing.JMenuItem jmiCadUsu;
     private javax.swing.JMenuItem jmiCadastrar;
     private javax.swing.JMenuItem jmiConsuProd;
-    private javax.swing.JMenuItem jmiExcUsu;
-    private javax.swing.JMenuItem jmiExcluir;
     private javax.swing.JMenuItem jmiPesq;
     private javax.swing.JMenuItem jmiPesqUsu;
     private javax.swing.JMenuItem jmiSair;
