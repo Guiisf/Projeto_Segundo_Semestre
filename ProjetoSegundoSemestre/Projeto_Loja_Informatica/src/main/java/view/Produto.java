@@ -8,7 +8,7 @@ package view;
  *
  * @author guilh
  */
-public class Produto {
+public class Produto { 
     
     private String Descricao;
     private int qtde;
