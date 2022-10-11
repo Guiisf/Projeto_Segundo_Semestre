@@ -153,39 +153,13 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-        int linhaSelecionada = tblNotas.getSelectedRow();
-        if(linhaSelecionada>=0){
-            //Pegar os dados da linha e passar para um objeto
-            NotaFiscal objSelecionado = new NotaFiscal();
-            objSelecionado.setIdNota(Integer.parseInt(
-                tblNotas.getValueAt(linhaSelecionada, 0).toString())
-        );
-        objSelecionado.setNumeroNota(Integer.parseInt(
-            tblNotas.getValueAt(linhaSelecionada, 1).toString())
-        );
-        objSelecionado.setValorNota(Double.parseDouble(
-            tblNotas.getValueAt(linhaSelecionada, 2).toString())
-        );
+        
 
-        TelaCadastroNotaFiscal novaTela = new TelaCadastroNotaFiscal(objSelecionado);
-        novaTela.setVisible(true);
-
-        }
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        int linhaSelecionada = tblNotas.getSelectedRow();
-        if(linhaSelecionada>0){
-            //Chmar o notafiscalDAO.excluir
-            int id = Integer.parseInt(tblNotas.getValueAt(linhaSelecionada, 0).toString());
-            boolean retorno = NotaFiscalDAO.excluir(id);
-            if(retorno){
-                JOptionPane.showMessageDialog(this,"Nota excluída com sucesso!");
-            }else{
-                JOptionPane.showMessageDialog(this,"Falha na alteração!");
-            }
-
-        }
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**

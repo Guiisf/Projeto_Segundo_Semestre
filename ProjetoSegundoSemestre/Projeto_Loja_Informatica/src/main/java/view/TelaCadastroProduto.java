@@ -4,8 +4,11 @@
  */
 package view;
 
+import produtosDAO.produtosDAO;
+import Model.Produto;
 import static java.awt.Color.yellow;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,6 +61,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -171,6 +179,13 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+                
+        
+        
+    
+    }//GEN-LAST:event_btnSalvarActionPerformed
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {
 
         char c = evt.getKeyChar();
