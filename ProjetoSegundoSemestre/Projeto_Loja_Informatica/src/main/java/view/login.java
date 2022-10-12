@@ -129,7 +129,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        new TelaCadastroUsuario().setVisible(true);
+        //new TelaCadastroUsuario().setVisible(true);
       
     }//GEN-LAST:event_btnCadastroActionPerformed
 

@@ -33,16 +33,17 @@ public class TelaInicial extends javax.swing.JFrame {
         jmClientes = new javax.swing.JMenu();
         jmiCadastrar = new javax.swing.JMenuItem();
         jmiPesq = new javax.swing.JMenuItem();
-        jmUsuarios = new javax.swing.JMenu();
-        jmiCadUsu = new javax.swing.JMenuItem();
-        jmiPesqUsu = new javax.swing.JMenuItem();
         jmProdutos = new javax.swing.JMenu();
         jmiCadProd = new javax.swing.JMenuItem();
         jmiConsuProd = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jmSobre = new javax.swing.JMenu();
         jmiSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela Inicial");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jButton1.setText("Vender");
@@ -84,21 +85,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jMenuBar1.add(jmClientes);
 
-        jmUsuarios.setText("Usuarios");
-        jmUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmUsuariosActionPerformed(evt);
-            }
-        });
-
-        jmiCadUsu.setText("Cadastro");
-        jmUsuarios.add(jmiCadUsu);
-
-        jmiPesqUsu.setText("Pesquisar");
-        jmUsuarios.add(jmiPesqUsu);
-
-        jMenuBar1.add(jmUsuarios);
-
         jmProdutos.setText("Produtos");
 
         jmiCadProd.setText("Cadastrar Produto");
@@ -110,9 +96,34 @@ public class TelaInicial extends javax.swing.JFrame {
         jmProdutos.add(jmiCadProd);
 
         jmiConsuProd.setText("Consultar Produto");
+        jmiConsuProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsuProdActionPerformed(evt);
+            }
+        });
         jmProdutos.add(jmiConsuProd);
 
         jMenuBar1.add(jmProdutos);
+
+        jMenu1.setText("Relatorios");
+
+        jMenuItem1.setText("Analitico");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Sinterico");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
 
         jmSobre.setText("Sobre");
 
@@ -155,10 +166,6 @@ public class TelaInicial extends javax.swing.JFrame {
         new TelaCadastroProduto().setVisible(true);
     }//GEN-LAST:event_jmiCadProdActionPerformed
 
-    private void jmUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuariosActionPerformed
-
-    }//GEN-LAST:event_jmUsuariosActionPerformed
-
     private void jmiPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPesqActionPerformed
         new TelaConsultaCliente().setVisible(true);
     }//GEN-LAST:event_jmiPesqActionPerformed
@@ -166,6 +173,18 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        new TelaVendas().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      new TelaRelaAnalitico().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         new TelaRelSintetico().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jmiConsuProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsuProdActionPerformed
+        new TelaConsultaProd().setVisible(true);
+    }//GEN-LAST:event_jmiConsuProdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,18 +223,18 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jmArquivo;
     private javax.swing.JMenu jmClientes;
     private javax.swing.JMenu jmProdutos;
     private javax.swing.JMenu jmSobre;
-    private javax.swing.JMenu jmUsuarios;
     private javax.swing.JMenuItem jmiCadProd;
-    private javax.swing.JMenuItem jmiCadUsu;
     private javax.swing.JMenuItem jmiCadastrar;
     private javax.swing.JMenuItem jmiConsuProd;
     private javax.swing.JMenuItem jmiPesq;
-    private javax.swing.JMenuItem jmiPesqUsu;
     private javax.swing.JMenuItem jmiSair;
     private javax.swing.JMenuItem jmiSobre;
     // End of variables declaration//GEN-END:variables
