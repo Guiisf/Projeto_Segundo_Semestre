@@ -48,7 +48,7 @@ public class TelaRelSintetico extends javax.swing.JFrame {
         lblDataFim.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblDataFim.setText("Data final:");
 
-        txtDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/aaaa"))));
 
         btnPesquisa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnPesquisa.setText("Pesquisar");
@@ -91,26 +91,26 @@ public class TelaRelSintetico extends javax.swing.JFrame {
         tblResultSinte.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         tblResultSinte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Qauntidade", "Total"
+                "Quantidade", "Total", "Data"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

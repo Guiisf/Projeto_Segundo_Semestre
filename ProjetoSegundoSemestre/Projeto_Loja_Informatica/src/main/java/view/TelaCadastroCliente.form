@@ -119,13 +119,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="txtRua" alignment="1" min="-2" pref="249" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtNome" alignment="0" pref="283" max="32767" attributes="0"/>
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCPF" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCPF" alignment="0" pref="283" max="32767" attributes="0"/>
+                                  <Component id="jFormattedTextField1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -169,9 +167,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDataNac" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jcbEstaCivi" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
@@ -218,6 +216,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="txtRua">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRuaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtCPF">
               <Properties>
@@ -225,6 +226,9 @@
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCPFKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jcbSexo">
               <Properties>
@@ -264,8 +268,6 @@
                 <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNome">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rua:"/>
@@ -277,6 +279,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCEP">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCEPKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -343,6 +348,11 @@
                   </StringArray>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -423,8 +433,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField3">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField3KeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField4">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField4KeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

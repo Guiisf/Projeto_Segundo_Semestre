@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author guilh
@@ -52,6 +54,12 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         lblNomeProd.setText("Nome:");
 
         btnBuscarNomProd.setText("Buscar");
+
+        txtCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodProdKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,6 +179,14 @@ public class TelaConsultaProd extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
 
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void txtCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodProdKeyTyped
+              char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtCodProd.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtCodProdKeyTyped
 
     /**
      * @param args the command line arguments

@@ -8,6 +8,7 @@ import produtosDAO.produtosDAO;
 import Model.Produto;
 import static java.awt.Color.yellow;
 import java.awt.event.KeyEvent;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,8 +77,32 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             }
         });
 
+        txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodKeyTyped(evt);
+            }
+        });
+
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
+
+        txtDesc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescKeyTyped(evt);
+            }
+        });
+
         lblDesc1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblDesc1.setText("Quantidade:");
+
+        txtDesc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDesc1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,11 +207,39 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-                
-        
-        
-    
+
+
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtCodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyTyped
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtCod.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtCodKeyTyped
+
+    private void txtDescKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescKeyTyped
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtDesc.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtDescKeyTyped
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtValor.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtValorKeyTyped
+
+    private void txtDesc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDesc1ActionPerformed
+     if (!(Pattern.matches("^[a-zA-Z]+$", txtDesc1.getText()))) {
+    JOptionPane.showMessageDialog(null, "Digite apenas letras", "Error", JOptionPane.ERROR_MESSAGE);
+}
+    }//GEN-LAST:event_txtDesc1ActionPerformed
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {
 
         char c = evt.getKeyChar();

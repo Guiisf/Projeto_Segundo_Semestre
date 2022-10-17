@@ -154,10 +154,6 @@ public class TelaInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jmiSairActionPerformed
-
     private void jmiCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCadastrarActionPerformed
         new TelaCadastroCliente().setVisible(true);
     }//GEN-LAST:event_jmiCadastrarActionPerformed
@@ -185,6 +181,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jmiConsuProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsuProdActionPerformed
         new TelaConsultaProd().setVisible(true);
     }//GEN-LAST:event_jmiConsuProdActionPerformed
+
+    private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jmiSairActionPerformed
 
     /**
      * @param args the command line arguments

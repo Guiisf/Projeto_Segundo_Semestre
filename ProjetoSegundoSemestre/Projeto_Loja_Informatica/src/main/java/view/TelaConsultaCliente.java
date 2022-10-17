@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author guilh
@@ -51,6 +53,11 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCPFKeyTyped(evt);
+            }
+        });
 
         btnBuscar.setText("Buscar");
 
@@ -183,6 +190,14 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
+              char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtCPF.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtCPFKeyTyped
 
     /**
      * @param args the command line arguments

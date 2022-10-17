@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author guilh
@@ -68,6 +70,11 @@ public class TelaVendas extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCPFKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("CPF:");
@@ -108,6 +115,12 @@ public class TelaVendas extends javax.swing.JFrame {
 
         lblPreco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPreco.setText("Preço:");
+
+        txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodKeyTyped(evt);
+            }
+        });
 
         btnPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnPesquisar.setText("Pesquisar");
@@ -331,6 +344,22 @@ public class TelaVendas extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        new TelaPagamento().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
+       char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtCPF.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtCPFKeyTyped
+
+    private void txtCodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyTyped
+             char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            this.txtCod.setText("Somente números");
+        }
+    }//GEN-LAST:event_txtCodKeyTyped
 
     /**
      * @param args the command line arguments
