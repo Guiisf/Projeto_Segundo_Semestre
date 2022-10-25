@@ -5,6 +5,7 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 public class Cliente {
 
     private String nome;
+    private int id;
     private String cpf;
     private String data_Nascimento;
     private String rua, cidade, cep;
@@ -16,8 +17,9 @@ public class Cliente {
 
     }
 
-    public Cliente(String nome, String cpf, String data_Nascimento, String rua, String cidade, String cep, int telefone, int celular, String email) {
+    public Cliente(String nome, int id, String cpf, String data_Nascimento, String rua, String cidade, String cep, int telefone, int celular, String email) {
         this.nome = nome;
+        this.id = id;
         this.cpf = cpf;
         this.data_Nascimento = data_Nascimento;
         this.rua = rua;
@@ -34,6 +36,14 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCpf() {
@@ -99,5 +109,8 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
 }
+
+
+    

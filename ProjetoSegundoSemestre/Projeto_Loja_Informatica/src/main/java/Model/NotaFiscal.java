@@ -1,31 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
-/**
- *
- * @author guilh
- */
-public class NotaFiscal {
+import java.util.Date;
 
+
+public class NotaFiscal {
+    
     private int idNota;
     private int numeroNota;
     private double valorNota;
+    private Date dataEmissao;
+    private Date dataEntrada;
 
     public NotaFiscal() {
-    }
-
-    public NotaFiscal(int numeroNota, double valorNota) {
-        this.numeroNota = numeroNota;
-        this.valorNota = valorNota;
-    }
-
-    public NotaFiscal(int idNota, int numeroNota, double valorNota) {
-        this.idNota = idNota;
-        this.numeroNota = numeroNota;
-        this.valorNota = valorNota;
     }
 
     public int getIdNota() {
@@ -35,7 +22,9 @@ public class NotaFiscal {
     public void setIdNota(int idNota) {
         this.idNota = idNota;
     }
-
+    
+    
+    
     public int getNumeroNota() {
         return numeroNota;
     }
@@ -50,6 +39,22 @@ public class NotaFiscal {
 
     public void setValorNota(double valorNota) {
         this.valorNota = valorNota;
-    }
-}
+    }    
 
+    public Date getDataEmissao() {
+        return dataEmissao;
+    }
+
+    public void setDataEmissao(Date dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+}
