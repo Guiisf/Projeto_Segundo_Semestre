@@ -1,10 +1,15 @@
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaVendas.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaCadastroUsuario.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaPagamento.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaConsultaCliente.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\Produto.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaInicial.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\Cliente.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaCadastroCliente.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\login.java
-D:\Educação\Senac\Projeto Interador\Semestre 2 - Fernando Timoteo\Projeto\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaCadastroProduto.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaCadastroCliente.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\Produto.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaRelSintetico.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaVendas.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaConsultaProd.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\Venda.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\DAO\produtosDAO.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\login.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaPagamento.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaConsultaCliente.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaCadastroProduto.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\Cliente.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaRelaAnalitico.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\Model\NotaFiscal.java
+C:\Users\levy_\Desktop\Nova Pasta\Projeto_Segundo_Semestre\ProjetoSegundoSemestre\Projeto_Loja_Informatica\src\main\java\view\TelaInicial.java

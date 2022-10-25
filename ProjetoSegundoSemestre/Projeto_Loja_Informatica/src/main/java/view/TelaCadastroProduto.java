@@ -4,8 +4,7 @@
  */
 package view;
 
-import produtosDAO.produtosDAO;
-import Model.Produto;
+
 import static java.awt.Color.yellow;
 import java.awt.event.KeyEvent;
 import java.util.regex.Pattern;

@@ -1,4 +1,6 @@
-package view;
+package Model;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
 public class Cliente {
 
