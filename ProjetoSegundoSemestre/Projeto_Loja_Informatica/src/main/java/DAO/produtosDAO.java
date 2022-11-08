@@ -1,6 +1,11 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package DAO;
 
-import DAO.produtosDAO;
+import Model.Produto;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,51 +13,285 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import Model.Produto;
+import utils.GerenciadorConexao;
 
+/**
+ *
+ * @author guilh
+ */
 public class produtosDAO {
 
-    public static String url = "jdbc:mysql://localhost:3306/projetoPi";
-    public static String login = "root";
-    public static String senha = "root";
-
-    public static boolean salvar(Produto objProduto) {
-
+    public static boolean Salvar(Produto pProduto) {
         boolean retorno = false;
         Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
 
         try {
 
+            //Passo 1
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            conexao = DriverManager.getConnection(url, login, senha);
+            //Passo 2 - DriverManager para abrir a conexão
+            String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO Produtos (nome_prod, descr_prod, valor) VALUES(?,?, ?)",
+            conexao = DriverManager.getConnection(URL, "root", "root");
+
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO Produtos (codProd, descricao, Qtde, preco) VALUES(?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            comandoSQL.setInt(1, Integer.parseInt(objProduto.getDescricao()));
-            comandoSQL.setDouble(2, objProduto.getPreco());
 
-            int numeroLinhas = comandoSQL.executeUpdate();
-            if (numeroLinhas > 0) {
+            instrucaoSQL.setInt(1, pProduto.getCodigo());
+            instrucaoSQL.setString(2, pProduto.getDescricao());
+            instrucaoSQL.setInt(3, pProduto.getQtde());
+            instrucaoSQL.setDouble(4, pProduto.getPreco());
+            
+
+            int linhasAfetadas = instrucaoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
                 retorno = true;
 
-                ResultSet rs = comandoSQL.getGeneratedKeys();
-                if (rs != null) {
-                    if (rs.next()) {
-                        objProduto.setCodigo(rs.getInt(1));
-                    }
+                ResultSet generatedKeys = instrucaoSQL.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    pProduto.setCodigo(generatedKeys.getInt(1));
+                } else {
+                    throw new SQLException("Falha ao obter o Codigo do Produto.");
                 }
-
+            } else {
+                retorno = false;
             }
 
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
             retorno = false;
-        } catch (SQLException ex) {
-            retorno = false;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+//                GerenciadorConexao.fecharConexao();
+                conexao.close();
+
+            } catch (SQLException ex) {
+            }
         }
 
         return retorno;
     }
+
+    public static boolean atualizar(Produto pProduto) {
+        boolean retorno = false;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
+
+            conexao = DriverManager.getConnection(URL, "root", "roor");
+
+            instrucaoSQL = conexao.prepareStatement("UPDATE produtos SET descricao=?, Qtde=?, preco=? WHERE  codProd=? ");
+
+            //Adiciono os parâmetros ao meu comando SQL
+          instrucaoSQL.setInt(1, pProduto.getCodigo());
+            instrucaoSQL.setString(2, pProduto.getDescricao());
+            instrucaoSQL.setInt(3, pProduto.getQtde());
+            instrucaoSQL.setDouble(3, pProduto.getPreco());
+
+            //Mando executar a instrução SQL
+            int linhasAfetadas = instrucaoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            } else {
+                retorno = false;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            retorno = false;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                //GerenciadorConexao.fecharConexao();
+                conexao.close();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return retorno;
+    }
+
+    public static boolean excluir(int pCodProd) {
+        boolean retorno = false;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        try {
+
+            //Tenta estabeler a conexão com o SGBD e cria comando a ser executado conexão
+            //Obs: A classe GerenciadorConexao já carrega o Driver e define os parâmetros de conexão
+            //conexao = GerenciadorConexao.abrirConexao();
+            //Passo 1
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            //Passo 2 - DriverManager para abrir a conexão
+            String URL = "jdbc:mysql://localhost:3306/lojamvc?useTimezone=true&serverTimezone=UTC&useSSL=false";
+
+            conexao = DriverManager.getConnection(URL, "root", "root");
+
+            instrucaoSQL = conexao.prepareStatement("DELETE FROM produtos WHERE codProd = ?");
+
+            //Adiciono os parâmetros ao meu comando SQL
+            instrucaoSQL.setInt(1, pCodProd);
+
+            //Mando executar a instrução SQL
+            int linhasAfetadas = instrucaoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            } else {
+                retorno = false;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            retorno = false;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                //GerenciadorConexao.fecharConexao();
+                conexao.close();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return retorno;
+    }
+
+    public static ArrayList<Produto> consultarProdutos() {
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        //Armazeno as informaçoes da tabela (resultSet) em um ArrayList
+        ArrayList<Produto> listaProduto = new ArrayList<Produto>();
+
+        try {
+
+            //conexao = GerenciadorConexao.abrirConexao();
+            //Passo 1
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            //Passo 2 - DriverManager para abrir a conexão
+            String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
+
+            conexao = DriverManager.getConnection(URL, "root", "root");
+
+            //Passo 3 - Executo a instrução SQL
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM produtos;");
+
+            //Executa a Query (Consulta) - Retorna um objeto da classe ResultSet
+            rs = instrucaoSQL.executeQuery();
+
+            //Percorrer o resultSet
+            while (rs.next()) {
+                Produto prod = new Produto();
+                prod.setCodigo(rs.getInt("codProd"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getDouble("preco"));
+                prod.setQtde(rs.getInt("Qtde"));
+
+                //Adiciono na listaClientes
+                listaProduto.add(prod);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            listaProduto = null;
+        } finally {
+            //Libero os recursos da memória
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                conexao.close();
+                //GerenciadorConexao.fecharConexao();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return listaProduto;
+    }
+
+    public static ArrayList<Produto> consultarProdutos(String pProd) {
+        ResultSet rs = null;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        ArrayList<Produto> listaProduto = new ArrayList<Produto>();
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM produtos WHERE prod LIKE ?;");
+
+            //Adiciono os parâmetros ao meu comando SQL
+            instrucaoSQL.setString(1, "%" + pProd + '%');
+
+            rs = instrucaoSQL.executeQuery();
+
+            while (rs.next()) {
+                Produto prod = new Produto();
+                prod.setCodigo(rs.getInt("codProd"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getDouble("preco"));
+                prod.setQtde(rs.getInt("Qtde"));
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            listaProduto = null;
+        } finally {
+            //Libero os recursos da memória
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                GerenciadorConexao.fecharConexao();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return listaProduto;
+    }
+
 }

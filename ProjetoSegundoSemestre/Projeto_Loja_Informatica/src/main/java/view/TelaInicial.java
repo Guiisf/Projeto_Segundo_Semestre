@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
 /**
@@ -167,15 +164,15 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiPesqActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new TelaVendas().setVisible(true);
+        new TelaVendas().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      new TelaRelaAnalitico().setVisible(true);
+        new TelaRelaAnalitico().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-         new TelaRelSintetico().setVisible(true);
+        new TelaRelSintetico().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jmiConsuProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsuProdActionPerformed
