@@ -148,7 +148,7 @@ public class produtosDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //Passo 2 - DriverManager para abrir a conexão
-            String URL = "jdbc:mysql://localhost:3306/lojamvc?useTimezone=true&serverTimezone=UTC&useSSL=false";
+            String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
             conexao = DriverManager.getConnection(URL, "root", "root");
 
@@ -257,7 +257,7 @@ public class produtosDAO {
         try {
 
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM produtos WHERE prod LIKE ?;");
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Produtos WHERE descricao LIKE ?;");
 
             //Adiciono os parâmetros ao meu comando SQL
             instrucaoSQL.setString(1, "%" + pProd + '%');
@@ -268,8 +268,10 @@ public class produtosDAO {
                 Produto prod = new Produto();
                 prod.setCodigo(rs.getInt("codProd"));
                 prod.setDescricao(rs.getString("descricao"));
-                prod.setPreco(rs.getDouble("preco"));
+              //  prod.setPreco(rs.getDouble("preco"));
                 prod.setQtde(rs.getInt("Qtde"));
+                
+               listaProduto.add(prod);
             }
 
         } catch (SQLException | ClassNotFoundException ex) {

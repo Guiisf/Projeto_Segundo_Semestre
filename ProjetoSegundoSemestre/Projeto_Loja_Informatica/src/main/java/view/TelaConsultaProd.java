@@ -4,13 +4,20 @@
  */
 package view;
 
+import DAO.produtosDAO;
+import Model.Produto;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author guilh
  */
 public class TelaConsultaProd extends javax.swing.JFrame {
+
+    Produto objProduto;
 
     /**
      * Creates new form TelaConsultaProd
@@ -54,6 +61,11 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         lblNomeProd.setText("Nome:");
 
         btnBuscarNomProd.setText("Buscar");
+        btnBuscarNomProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarNomProdActionPerformed(evt);
+            }
+        });
 
         txtCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -108,22 +120,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
             new String [] {
                 "Codigo do produto", "Nome do produto", "Quantidade em estoque"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tblResultProd);
 
         btnAlterar.setText("Alterar");
@@ -173,20 +170,72 @@ public class TelaConsultaProd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        int linhaSelecionada = tblResultProd.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            //Pegar os dados da linha e passar para um objeto
+            Produto objSelecionado = new Produto();
+            objSelecionado.setCodigo(Integer.parseInt(
+                    tblResultProd.getValueAt(linhaSelecionada, 0).toString())
+            );
 
+            objSelecionado.setDescricao(tblResultProd.getValueAt(linhaSelecionada, 1).toString());
+
+            objSelecionado.setQtde(Integer.parseInt(
+                    tblResultProd.getValueAt(linhaSelecionada, 2).toString())
+            );
+
+            TelaCadastroProduto novaTela = new TelaCadastroProduto(objSelecionado);
+            novaTela.setVisible(true);
+
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int linhaSelecionada = tblResultProd.getSelectedRow();
+        if (linhaSelecionada > 0) {
+            //Chmar o notafiscalDAO.excluir
+            int id = Integer.parseInt(tblResultProd.getValueAt(linhaSelecionada, 0).toString());
+            boolean retorno = produtosDAO.excluir(id);
+            if (retorno) {
+                JOptionPane.showMessageDialog(this, "Produto excluído com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha na alteração!");
+            }
 
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodProdKeyTyped
-              char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
             this.txtCodProd.setText("Somente números");
         }
     }//GEN-LAST:event_txtCodProdKeyTyped
+
+    private void btnBuscarNomProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNomProdActionPerformed
+
+        ArrayList<Produto> listaProduto = produtosDAO.consultarProdutos(txtNomeProd.getText());
+
+        DefaultTableModel tmProdutos = new DefaultTableModel();
+        tmProdutos.addColumn("Codigo do produto");
+        tmProdutos.addColumn("Nome do produto");
+        tmProdutos.addColumn("Quantidade em estoque");
+        tblResultProd.setModel(tmProdutos);
+
+        //Removo a coluna ID da View (JTable) mas mantenho na model para armazenar o ID
+        //tblResultProd.removeColumn(tblResultProd.getColumnModel().getColumn(0));
+        //Limpo a tabela, excluindo todas as linhas para depois mostrar os dados novamente
+        //  tmProdutos.setRowCount(0);
+        //Para cada cliente resgatado do banco de dados, atualizo a tabela
+        for (Produto p : listaProduto) {
+            tmProdutos.addRow(new Object[]{p.getCodigo(), p.getDescricao(), p.getQtde()});
+        }
+        //Defino o tamanho para cada coluna
+        tblResultProd.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblResultProd.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tblResultProd.getColumnModel().getColumn(2).setPreferredWidth(100);
+    }//GEN-LAST:event_btnBuscarNomProdActionPerformed
 
     /**
      * @param args the command line arguments
