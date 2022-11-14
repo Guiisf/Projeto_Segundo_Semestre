@@ -54,12 +54,16 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getCpf() {
+     public String getCPF() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public String getCPFSomenteNumeros() {
+        return cpf.replace(".", "").replace("-", "");
+    }
+    
+    public void setCPF(String pCPF) {
+        this.cpf = pCPF;
     }
 
     public Date getData_Nascimento() {

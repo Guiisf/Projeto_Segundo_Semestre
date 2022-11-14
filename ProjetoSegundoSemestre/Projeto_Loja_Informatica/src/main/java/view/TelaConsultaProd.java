@@ -36,12 +36,9 @@ public class TelaConsultaProd extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblCod = new javax.swing.JLabel();
-        btnBuscarCodProd = new javax.swing.JButton();
         lblNomeProd = new javax.swing.JLabel();
         txtNomeProd = new javax.swing.JTextField();
         btnBuscarNomProd = new javax.swing.JButton();
-        txtCodProd = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResultProd = new javax.swing.JTable();
         btnAlterar = new javax.swing.JButton();
@@ -51,11 +48,6 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         setTitle("Consulta de Produto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblCod.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblCod.setText("Codigo:");
-
-        btnBuscarCodProd.setText("Buscar");
 
         lblNomeProd.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNomeProd.setText("Nome:");
@@ -67,47 +59,27 @@ public class TelaConsultaProd extends javax.swing.JFrame {
             }
         });
 
-        txtCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCodProdKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNomeProd)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarNomProd))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblCod)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodProd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarCodProd)))
+                .addComponent(lblNomeProd)
+                .addGap(18, 18, 18)
+                .addComponent(txtNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarNomProd)
                 .addContainerGap(195, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCod)
-                    .addComponent(btnBuscarCodProd)
-                    .addComponent(txtCodProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeProd)
                     .addComponent(txtNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarNomProd))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         tblResultProd.setModel(new javax.swing.table.DefaultTableModel(
@@ -158,11 +130,11 @@ public class TelaConsultaProd extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -204,14 +176,6 @@ public class TelaConsultaProd extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void txtCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodProdKeyTyped
-        char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
-            this.txtCodProd.setText("Somente números");
-        }
-    }//GEN-LAST:event_txtCodProdKeyTyped
 
     private void btnBuscarNomProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNomProdActionPerformed
 
@@ -274,15 +238,12 @@ public class TelaConsultaProd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnBuscarCodProd;
     private javax.swing.JButton btnBuscarNomProd;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblNomeProd;
     private javax.swing.JTable tblResultProd;
-    private javax.swing.JTextField txtCodProd;
     private javax.swing.JTextField txtNomeProd;
     // End of variables declaration//GEN-END:variables
 }

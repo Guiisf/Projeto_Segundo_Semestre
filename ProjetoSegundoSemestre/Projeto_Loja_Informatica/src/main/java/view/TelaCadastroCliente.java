@@ -26,14 +26,37 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
-    public String modoTela = "Cadastro";
+    public String modoTela = "Criação";
     Cliente objCliente;
 
     /**
-     * Creates new form TelaCadastroCliente
+     * Creates new form CadastrarCliente
      */
     public TelaCadastroCliente() {
         initComponents();
+        objCliente = new Cliente();
+
+        setLocationRelativeTo(null);
+    }
+
+    public TelaCadastroCliente(Cliente c) {
+        initComponents();
+        this.objCliente = c;
+
+        this.txtNome.setText(c.getNome());
+        this.txtCPF.setText(c.getCPF());
+        this.txtDataNascimento.setValue(c.getData_Nascimento());
+        this.jcbSexo.setSelectedItem(c.getSexo());
+        this.jcbEstaCivi.setSelectedItem(c.getEstado_civil());
+        this.txtRua.setText(c.getRua());
+        this.txtCidade.setText(c.getCidade());
+        this.jcbEstado.setSelectedItem(c.getEstado());
+        this.txtCEP.setText(c.getCep());
+        this.txtTelefone.setText(c.getTelefone());
+        this.txtCelular.setText(c.getCelular());
+        this.txtEmail.setText(c.getEmail());
+
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -80,7 +103,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         tblCliente = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        lblID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Cliente");
@@ -404,6 +427,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("ID:");
 
+        lblID.setText("0");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -412,14 +437,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(429, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel11)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblID))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -442,7 +467,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 583, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -451,43 +476,97 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        //Resgato os produtos
-        ArrayList<Cliente> listaItens = new ArrayList<Cliente>();
-        if (tblCliente.getRowCount() > 0) {
-            for (int i = 0; i < tblCliente.getRowCount(); i++) {
-                Cliente item = new Cliente();
 
-                item.setId(Integer.parseInt(tblCliente.getValueAt(i, 0).toString()));
-                item.setNome(tblCliente.getValueAt(i, 1).toString());
-                item.setCpf((tblCliente.getValueAt(i, 2).toString()));
-                item.setSexo(tblCliente.getValueAt(i, 4).toString());
-                item.setEstado_civil(tblCliente.getValueAt(i, 5).toString());
-                item.setRua(tblCliente.getValueAt(i, 6).toString());
-                item.setCidade(tblCliente.getValueAt(i, 7).toString());
-                item.setEstado(tblCliente.getValueAt(i, 8).toString());
-                item.setCep(tblCliente.getValueAt(i, 9).toString());
-                item.setTelefone(tblCliente.getValueAt(i, 10).toString());
-                item.setCelular(tblCliente.getValueAt(i, 11).toString());
-                item.setEmail(tblCliente.getValueAt(i, 12).toString());
+        int id = Integer.parseInt(lblID.getText());
 
-                //Adiciono o objeto à listaItens
-                listaItens.add(item);
+        if (modoTela == "Criação") {
 
+            String Nome = txtNome.getText();
+            String cpf = txtCPF.getText();
+            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+            Date nascimento = new Date();
+            try {
+                nascimento = formatador.parse(txtDataNascimento.getText());
+            } catch (ParseException ex) {
+                Logger.getLogger(TelaCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String Sexo = "";
+            Sexo = String.valueOf(jcbSexo.getSelectedItem());
+            String EstadoCivil = "";
+            EstadoCivil = String.valueOf(jcbEstaCivi.getSelectedItem());
+            String Rua = txtRua.getText();
+            String Cidade = txtCidade.getText();
+            String Estado = "";
+            Estado = String.valueOf(jcbEstado.getSelectedItem());
+            int Cep = Integer.parseInt(txtCEP.getText().replace("-", ""));
+            long Telefone = Long.parseLong(txtTelefone.getText().replace("-", "").trim());
+            long Celular = Long.parseLong(txtCelular.getText().replace("-", "").trim());
+            String Email = txtEmail.getText();
+
+            objCliente.setNome(txtNome.getText());
+            objCliente.setCPF(cpf);
+            objCliente.setSexo((String) jcbSexo.getSelectedItem());
+            objCliente.setEstado_civil((String) jcbEstaCivi.getSelectedItem());
+            objCliente.setRua(txtRua.getText());
+            objCliente.setCidade(txtCidade.getText());
+            objCliente.setEstado((String) jcbEstado.getSelectedItem());
+            objCliente.setCep(txtCEP.getText());
+            objCliente.setTelefone(txtTelefone.getText());
+            objCliente.setCelular(txtCelular.getText());
+            objCliente.setEmail(txtEmail.getText());
+
+            try {
+                clienteDAO.Salvar(objCliente);
+                JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!", "Cliente Cadastrado", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Falha ao gravar no banco de dados\n" + e.getMessage(),
+                        "Aviso de Falha", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else { //Modo de alteração
+
+            String Nome = txtNome.getText();
+            String cpf = txtCPF.getText();
+            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+            Date nascimento = new Date();
+            try {
+                nascimento = formatador.parse(txtDataNascimento.getText());
+            } catch (ParseException ex) {
+                Logger.getLogger(TelaCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String Sexo = "";
+            Sexo = String.valueOf(jcbSexo.getSelectedItem());
+            String EstadoCivil = "";
+            EstadoCivil = String.valueOf(jcbEstaCivi.getSelectedItem());
+            String Rua = txtRua.getText();
+            String Cidade = txtCidade.getText();
+            String Estado = "";
+            Estado = String.valueOf(jcbEstado.getSelectedItem());
+            int Cep = Integer.parseInt(txtCEP.getText().replace("-", ""));
+            long Telefone = Long.parseLong(txtTelefone.getText().replace("-", "").trim());
+            long Celular = Long.parseLong(txtCelular.getText().replace("-", "").trim());
+            String Email = txtEmail.getText();
+
+            objCliente.setNome(txtNome.getText());
+            objCliente.setCPF(cpf);
+            objCliente.setSexo((String) jcbSexo.getSelectedItem());
+            objCliente.setEstado_civil((String) jcbEstaCivi.getSelectedItem());
+            objCliente.setRua(txtRua.getText());
+            objCliente.setCidade(txtCidade.getText());
+            objCliente.setEstado((String) jcbEstado.getSelectedItem());
+            objCliente.setCep(txtCEP.getText());
+            objCliente.setTelefone(txtTelefone.getText());
+            objCliente.setCelular(txtCelular.getText());
+            objCliente.setEmail(txtEmail.getText());
+            try {
+                boolean retorno = clienteDAO.atualizar(objCliente);
+
+                JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!", "Cliente Cadastrado", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Falha ao gravar no banco de dados\n" + e.getMessage(),
+                        "Aviso de Falha", JOptionPane.ERROR_MESSAGE);
             }
         }
-
-        //Crio o objeto NotaFiscal e passo os produtos e os dados da tela
-        Cliente objCliente = new Cliente();
-
-        objCliente.setListaItens(listaItens);
-
-        boolean retorno = clienteDAO.Salvar(objCliente);
-        if (retorno) {
-            JOptionPane.showMessageDialog(this, "Nota gravada com sucesso!");
-        } else {
-            JOptionPane.showMessageDialog(this, "Falha na gravação!");
-        }
-
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -558,9 +637,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             return;
         }
 
-        int idCliente = Integer.parseInt(txtID.getText());
+        int idCliente = Integer.parseInt(lblID.getText());
         String Nome = txtNome.getText();
-        long CPF = Long.parseLong(txtCPF.getText().replace(".", "").replace("-", "").trim());
+        String cpf = txtCPF.getText();
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         Date nascimento = new Date();
         try {
@@ -582,8 +661,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         String Email = txtEmail.getText();
 
         DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
-        modelo.addRow(new String[]{String.valueOf(idCliente), Nome, String.valueOf(CPF), String.valueOf(nascimento), Sexo, EstadoCivil,
-            Rua, Cidade, Estado, String.valueOf(Cep), String.valueOf(Telefone), String.valueOf(Celular), Email,});
+        modelo.addRow(new String[]{String.valueOf(idCliente), Nome, String.valueOf(cpf), String.valueOf(nascimento), Sexo, EstadoCivil,
+            Rua, Cidade, Estado, String.valueOf(Cep), String.valueOf(Telefone), String.valueOf(Celular), Email});
 
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -648,6 +727,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblRua;
     private javax.swing.JTable tblCliente;
     private javax.swing.JFormattedTextField txtCEP;
@@ -656,7 +736,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtID;
     private javax.swing.JFormattedTextField txtNome;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtTelefone;

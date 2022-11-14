@@ -4,7 +4,14 @@
  */
 package view;
 
+import DAO.clienteDAO;
+import DAO.produtosDAO;
+import Model.Cliente;
+import Model.Produto;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,11 +19,20 @@ import java.awt.event.KeyEvent;
  */
 public class TelaConsultaCliente extends javax.swing.JFrame {
 
+    Cliente objCliente;
+
     /**
-     * Creates new form TelaConsultaCliente
+     * Creates new form Tela Consulta de clientes
      */
     public TelaConsultaCliente() {
         initComponents();
+
+        setLocationRelativeTo(null);
+        objCliente = new Cliente();
+
+        //Carregar todos os clientes na tabela ao iniciar este JFrame
+        CarregarJTable();
+
     }
 
     /**
@@ -29,14 +45,11 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        txtNome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtCPF = new javax.swing.JFormattedTextField();
-        btnBuscar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblNotas = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
@@ -45,26 +58,15 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("CPF:");
+        jLabel1.setText("Nome:");
 
-        try {
-            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCPFKeyTyped(evt);
+        btnPesquisar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
             }
         });
-
-        btnBuscar.setText("Buscar");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Nome:");
-
-        jButton1.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,64 +74,37 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
-        tblNotas.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "CPF"
+                "ID", "Nome", "CPF"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblNotas);
+        ));
+        jScrollPane1.setViewportView(tblClientes);
 
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -152,16 +127,19 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterar, btnExcluir});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -169,12 +147,13 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 222, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -182,22 +161,89 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-        
+        if (tblClientes.getRowCount() > 0) {
+            
+            int numeroLinha = tblClientes.getSelectedRow();
 
-        
+           
+            int IDcliente = Integer.parseInt(tblClientes.getModel().getValueAt(numeroLinha, 0).toString());
+            String nome = tblClientes.getModel().getValueAt(numeroLinha, 1).toString();
+            String cpf = tblClientes.getModel().getValueAt(numeroLinha, 2).toString();
+
+            objCliente.setId(IDcliente);
+            objCliente.setNome(nome);
+            objCliente.setCPF(cpf);
+
+          
+            TelaCadastroCliente telaCadastro = new TelaCadastroCliente(objCliente);
+            telaCadastro.modoTela = "Alteração";
+
+            
+            telaCadastro.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente da tabela!");
+        }
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+        int linhaSelecionada = tblClientes.getSelectedRow();
+        if (linhaSelecionada > 0) {
+
+            int id = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
+            boolean retorno = clienteDAO.excluir(id);
+            if (retorno) {
+                JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha na alteração!");
+            }
+
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
-              char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
-            this.txtCPF.setText("Somente números");
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(txtNome.getText());
+
+        DefaultTableModel tmCliente = new DefaultTableModel();
+        tmCliente.addColumn("ID");
+        tmCliente.addColumn("Nome");
+        tmCliente.addColumn("CPF");
+        tblClientes.setModel(tmCliente);
+
+        for (Cliente c : listaCliente) {
+            tmCliente.addRow(new Object[]{c.getId(), c.getNome(), c.getCPF()});
         }
-    }//GEN-LAST:event_txtCPFKeyTyped
+        //Defino o tamanho para cada coluna
+        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(275);
+        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(125);
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    public void CarregarJTable() {
+        ;
+
+        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(txtNome.getText());
+
+        DefaultTableModel tmClientes = new DefaultTableModel();
+        tmClientes.addColumn("ID");
+        tmClientes.addColumn("Nome");
+        tmClientes.addColumn("CPF");
+
+        tblClientes.setModel(tmClientes);
+
+        tmClientes.setRowCount(0);
+        tmClientes.addRow(new Object[]{objCliente.getId(), objCliente.getNome(), objCliente.getCPF()});
+//        }
+
+        for (Cliente c : listaCliente) {
+            tmClientes.addRow(new Object[]{c.getId(), c.getNome(), c.getCPF()});
+        }
+
+        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(300); // Nome
+        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(100); //CPF
+    }
 
     /**
      * @param args the command line arguments
@@ -236,15 +282,12 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tblNotas;
-    private javax.swing.JFormattedTextField txtCPF;
+    private javax.swing.JTable tblClientes;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
