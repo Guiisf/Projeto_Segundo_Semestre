@@ -9,6 +9,7 @@ preco decimal (9,2),
 PRIMARY KEY(codProd)
 );
 
+
 select* from Produtos;
 Select descricao, preco * Qtde as valor_total
 From (Produtos)
@@ -37,10 +38,11 @@ CREATE TABLE carrinho (
   IdCompra INT NOT NULL AUTO_INCREMENT,
   DataEmissao Date NOT NULL,
   nome varchar(245) Not null,
-  codProd INT NOT NULL,
   produto varchar (100),
   Qtde varchar (500),
   ValorNota DOUBLE NOT NULL,
+  codProd int not null,
+  foreign key (codProd) references Produtos(codProd),
   PRIMARY KEY(idCompra)
 );
 
@@ -50,6 +52,8 @@ drop table Produtos;
 drop table Clientes;
 drop table carrinho;
 
+update Produtos inner join carrinho on Produtos.codProd = carrinho.codProd SET Produtos.Qtde = Produtos.Qtde - carrinho.Qtde
+where carrinho.codProd = Produtos.codProd;
 
 
 
