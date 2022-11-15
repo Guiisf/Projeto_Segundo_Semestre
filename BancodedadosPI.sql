@@ -42,7 +42,9 @@ CREATE TABLE carrinho (
   Qtde varchar (500),
   ValorNota DOUBLE NOT NULL,
   codProd int not null,
+  idCliente int not null,
   foreign key (codProd) references Produtos(codProd),
+  foreign key (idCliente) references Clientes(idCliente),
   PRIMARY KEY(idCompra)
 );
 
