@@ -61,12 +61,12 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblDesc = new javax.swing.JLabel();
         lblValor = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
-        txtCod = new javax.swing.JTextField();
         txtValor = new javax.swing.JTextField();
         txtQuant = new javax.swing.JTextField();
         lblQuant = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
+        lblID = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -85,16 +85,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblValor.setText("Valor:");
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Actions-document-save-icon (1).png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
-            }
-        });
-
-        txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCodKeyTyped(evt);
             }
         });
 
@@ -120,12 +115,16 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         btnAdicionar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-database-add-icon.png"))); // NOI18N
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarActionPerformed(evt);
             }
         });
+
+        lblID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblID.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,30 +133,31 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDesc)
-                    .addComponent(lblCod)
-                    .addComponent(lblQuant)
-                    .addComponent(lblValor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(txtCod)
-                    .addComponent(txtDesc)
-                    .addComponent(txtQuant)
-                    .addComponent(txtValor)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDesc)
+                            .addComponent(lblQuant)
+                            .addComponent(lblValor))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                            .addComponent(txtDesc)
+                            .addComponent(txtQuant)
+                            .addComponent(txtValor)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCod)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblCod))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCod)
+                    .addComponent(lblID))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,20 +169,20 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValor)
-                    .addComponent(txtValor, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(txtValor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdicionar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addGap(20, 20, 20))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+
             },
             new String [] {
-                "Codigo", "Descrição", "Quantidade", "Valor"
+                "Codigo", "Descrição", "Quantidade", "Valor Unit", "Valor Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -214,7 +214,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if (modoTela == "Criação") {
 
-            int codProd = Integer.parseInt(txtCod.getText());
+            int codProd = Integer.parseInt(lblID.getText());
             String descricao = txtDesc.getText();
             int quantidade = Integer.parseInt(txtQuant.getText());
             double valor = Double.parseDouble(txtValor.getText());
@@ -232,7 +232,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             }
 
         } else {
-            int codProd = Integer.parseInt(txtCod.getText());
+            int codProd = Integer.parseInt(lblID.getText());
             String descricao = txtDesc.getText();
             int quantidade = Integer.parseInt(txtQuant.getText());
             double valor = Double.parseDouble(txtValor.getText());
@@ -277,23 +277,16 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtDescActionPerformed
 
-    private void txtCodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyTyped
-        char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
-            this.txtCod.setText("Somente números");
-        }
-    }//GEN-LAST:event_txtCodKeyTyped
-
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
 
-        int codProd = Integer.parseInt(txtCod.getText());
+        int codProd = Integer.parseInt(lblID.getText());
         String dscProduto = txtDesc.getText();
         int qtd = Integer.parseInt(txtQuant.getText());
         double preco =  Double.parseDouble(txtValor.getText());
+        double soma = qtd * preco;
 
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        modelo.addRow(new String[]{String.valueOf(codProd),dscProduto, String.valueOf(qtd), String.valueOf(preco)});
+        modelo.addRow(new String[]{String.valueOf(codProd),dscProduto, String.valueOf(qtd), String.valueOf(preco), String.valueOf(soma)});
     }//GEN-LAST:event_btnAdicionarActionPerformed
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {
 
@@ -323,7 +316,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }
 
     private void txtIDFocusGained(java.awt.event.FocusEvent evt) {
-        txtCod.setBackground(yellow);
+        lblID.setBackground(yellow);
     }
 
     /**
@@ -369,9 +362,9 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblDesc;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblQuant;
     private javax.swing.JLabel lblValor;
-    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtQuant;
     private javax.swing.JTextField txtValor;

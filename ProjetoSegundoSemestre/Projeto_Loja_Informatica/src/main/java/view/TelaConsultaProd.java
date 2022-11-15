@@ -52,6 +52,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         lblNomeProd.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNomeProd.setText("Nome:");
 
+        btnBuscarNomProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Zoom-In-icon.png"))); // NOI18N
         btnBuscarNomProd.setText("Buscar");
         btnBuscarNomProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +71,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
                 .addComponent(txtNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarNomProd)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,6 +96,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblResultProd);
 
+        btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Actions-document-edit-icon.png"))); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
             }
         });
 
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Misc-Delete-Database-icon.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +121,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,7 +200,7 @@ public class TelaConsultaProd extends javax.swing.JFrame {
         }
         //Defino o tamanho para cada coluna
         tblResultProd.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblResultProd.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tblResultProd.getColumnModel().getColumn(1).setPreferredWidth(275);
         tblResultProd.getColumnModel().getColumn(2).setPreferredWidth(100);
     }//GEN-LAST:event_btnBuscarNomProdActionPerformed
 

@@ -94,7 +94,7 @@ public class produtosDAO {
 
             String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
-            conexao = DriverManager.getConnection(URL, "root", "roor");
+            conexao = DriverManager.getConnection(URL, "root", "root");
 
             instrucaoSQL = conexao.prepareStatement("UPDATE produtos SET descricao=?, Qtde=?, preco=? WHERE  codProd=? ");
 
@@ -268,7 +268,7 @@ public class produtosDAO {
                 Produto prod = new Produto();
                 prod.setCodigo(rs.getInt("codProd"));
                 prod.setDescricao(rs.getString("descricao"));
-              //  prod.setPreco(rs.getDouble("preco"));
+                prod.setPreco(rs.getDouble("preco"));
                 prod.setQtde(rs.getInt("Qtde"));
                 
                listaProduto.add(prod);

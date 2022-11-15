@@ -4,17 +4,26 @@
  */
 package view;
 
+import DAO.carrinhoDAO;
+import Model.Cliente;
+import Model.carrinho;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guilh
  */
 public class TelaRelaAnalitico extends javax.swing.JFrame {
+      carrinho objCarrinho;
 
     /**
      * Creates new form TelaRelaAnalitico
      */
     public TelaRelaAnalitico() {
         initComponents();
+         objCarrinho = new carrinho();
+        CarregarJTable();
     }
 
     /**
@@ -26,87 +35,52 @@ public class TelaRelaAnalitico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResultAnali = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatorio Analitico");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Data"));
-
         tblResultAnali.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Produto", "Quantidade", "Valor unit"
+                "Nome", "Produto", "Quantidade", "Valor unit"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tblResultAnali);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -146,9 +120,36 @@ public class TelaRelaAnalitico extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void CarregarJTable() {
+        
+
+        ArrayList<carrinho> listaCarrinho = carrinhoDAO.consultarCarrinho2();
+
+        DefaultTableModel tmCarrinho = new DefaultTableModel();
+        tmCarrinho.addColumn(" Nome");
+        tmCarrinho.addColumn(" Produto");
+        tmCarrinho.addColumn("Quantidade");
+        tmCarrinho.addColumn("Valor unit");
+       
+
+        tblResultAnali.setModel(tmCarrinho);
+
+        tmCarrinho.setRowCount(0);
+        tmCarrinho.addRow(new Object[]{objCarrinho.getNome(),objCarrinho.getProduto(), objCarrinho.getQtde(), objCarrinho.getValorUnit()});
+      
+
+        for (carrinho carr : listaCarrinho) {
+            tmCarrinho.addRow(new Object[]{carr.getNome(),carr.getProduto(), carr.getQtde(), carr.getValorUnit()});
+        }
+
+      tblResultAnali.getColumnModel().getColumn(0).setPreferredWidth(100); 
+        tblResultAnali.getColumnModel().getColumn(1).setPreferredWidth(100); 
+        tblResultAnali.getColumnModel().getColumn(2).setPreferredWidth(200); 
+         tblResultAnali.getColumnModel().getColumn(3).setPreferredWidth(250); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblResultAnali;
     // End of variables declaration//GEN-END:variables

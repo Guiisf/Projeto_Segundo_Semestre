@@ -4,6 +4,17 @@
  */
 package view;
 
+import DAO.carrinhoDAO;
+import DAO.clienteDAO;
+import Model.Cliente;
+import Model.carrinho;
+import java.awt.Dimension;
+import java.beans.PropertyVetoException;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guilh
@@ -48,7 +59,13 @@ public class TelaRelSintetico extends javax.swing.JFrame {
         lblDataFim.setText("Data final:");
 
         btnPesquisa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zoom.png"))); // NOI18N
         btnPesquisa.setText("Pesquisar");
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
 
         jdcDataFinal.setDateFormatString("dd/MM/yyyy");
 
@@ -71,7 +88,7 @@ public class TelaRelSintetico extends javax.swing.JFrame {
                         .addComponent(jdcDataFinal1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(199, 199, 199)
-                        .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnPesquisa)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -90,7 +107,7 @@ public class TelaRelSintetico extends javax.swing.JFrame {
         );
 
         tblResultSinte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblResultSinte.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tblResultSinte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblResultSinte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -107,25 +124,16 @@ public class TelaRelSintetico extends javax.swing.JFrame {
             new String [] {
                 "Data", "Cliente", "Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tblResultSinte);
 
+        btnDetalhes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data-View-Details-icon.png"))); // NOI18N
         btnDetalhes.setText("Detalhes");
+        btnDetalhes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalhesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,6 +167,40 @@ public class TelaRelSintetico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        ArrayList<carrinho> listaCarrinho = carrinhoDAO.consultarCarrinho();
+
+        DefaultTableModel tmCarrinho = new DefaultTableModel();
+        tmCarrinho.addColumn("Data");
+        tmCarrinho.addColumn("Cliente");
+        tmCarrinho.addColumn("Total");
+        tblResultSinte.setModel(tmCarrinho);
+
+        for (carrinho c : listaCarrinho) {
+            tmCarrinho.addRow(new Object[]{c.getDataCompra(), c.getNome(), c.getValorTotal()});
+        }
+
+        tblResultSinte.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tblResultSinte.getColumnModel().getColumn(1).setPreferredWidth(175);
+        tblResultSinte.getColumnModel().getColumn(2).setPreferredWidth(125);
+    }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
+        int linhaSelecionada = tblResultSinte.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            TelaRelaAnalitico novoArquivo = new TelaRelaAnalitico();
+
+            novoArquivo.setPreferredSize(new Dimension(600, 600));
+            novoArquivo.setLocationRelativeTo(this);
+
+            novoArquivo.setVisible(true);
+
+            novoArquivo.pack();
+
+        }
+
+    }//GEN-LAST:event_btnDetalhesActionPerformed
 
     /**
      * @param args the command line arguments

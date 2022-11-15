@@ -32,13 +32,13 @@ public class clienteDAO {
 
             conexao = DriverManager.getConnection(URL, "root", "root");
 
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO  Clientes (nome,CPF, dataDeNascimento, sexo, estadoCivil, rua,cidade, estado, cep, cttTelefone, cttCelular, email) VALUES(?,?, ?,?,?,?,?,?,?, ?, ?, ?)",
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO  Clientes (nome,CPF, DataNascimento, sexo, estadoCivil, rua,cidade, estado, cep, cttTelefone, cttCelular, email) VALUES(?,?, ?,?,?,?,?,?,?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             //   instrucaoSQL.setInt(0, pCliente.getId());
             instrucaoSQL.setString(1, pCliente.getNome());
             instrucaoSQL.setString(2, pCliente.getCPFSomenteNumeros());
-            instrucaoSQL.setDate(3, (Date) pCliente.getData_Nascimento());
+             instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
             instrucaoSQL.setString(4, pCliente.getSexo());
             instrucaoSQL.setString(5, pCliente.getEstado_civil());
             instrucaoSQL.setString(6, pCliente.getRua());
@@ -98,13 +98,13 @@ public class clienteDAO {
 
             String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
-            conexao = DriverManager.getConnection(URL, "root", "roor");
+            conexao = DriverManager.getConnection(URL, "root", "root");
 
-            instrucaoSQL = conexao.prepareStatement("UPDATE Clientes SET nome =?, CPF=?, dataDeNascimento=?,  estadoCivil=?, sexo=?, rua=?, cidade=?, estado=?, cep=?, cttTelefone=?, cttCelular=?, email=?  WHERE idCliente=? ");
+            instrucaoSQL = conexao.prepareStatement("UPDATE Clientes SET nome =?, CPF=?, DataNascimento=?,  estadoCivil=?, sexo=?, rua=?, cidade=?, estado=?, cep=?, cttTelefone=?, cttCelular=?, email=?  WHERE idCliente=? ");
 
             instrucaoSQL.setString(1, pCliente.getNome());
             instrucaoSQL.setString(2, pCliente.getCPFSomenteNumeros());
-            instrucaoSQL.setDate(3, (Date) pCliente.getData_Nascimento());
+           instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
             instrucaoSQL.setString(4, pCliente.getSexo());
             instrucaoSQL.setString(5, pCliente.getEstado_civil());
             instrucaoSQL.setString(6, pCliente.getRua());
