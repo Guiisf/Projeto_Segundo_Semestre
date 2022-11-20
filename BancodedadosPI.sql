@@ -19,7 +19,7 @@ CREATE TABLE Clientes(
 idCliente INT NOT NULL AUTO_INCREMENT,
 nome varchar(245) Not null,
 CPF VARCHAR(11) NOT NULL,
-dataDeNascimento Date NOT NULL,
+ DataNascimento Date NOT NULL,
 sexo varchar(100),
 estadoCivil varchar(100),
 rua varchar (200) Not null,  
@@ -42,9 +42,7 @@ CREATE TABLE carrinho (
   Qtde varchar (500),
   ValorNota DOUBLE NOT NULL,
   codProd int not null,
-  idCliente int not null,
   foreign key (codProd) references Produtos(codProd),
-  foreign key (idCliente) references Clientes(idCliente),
   PRIMARY KEY(idCompra)
 );
 
@@ -57,6 +55,39 @@ drop table carrinho;
 update Produtos inner join carrinho on Produtos.codProd = carrinho.codProd SET Produtos.Qtde = Produtos.Qtde - carrinho.Qtde
 where carrinho.codProd = Produtos.codProd;
 
+
+
+select carrinho.nome, carrinho.produto, carrinho.Qtde , Produtos.preco 
+from carrinho
+inner join Produtos
+on carrinho.codProd = carrinho.codProd ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                              
 
 
 
