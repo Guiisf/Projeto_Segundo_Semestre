@@ -18,12 +18,600 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class TelaVendas extends javax.swing.JFrame {
 
-    public String modoTela = "Criação";
-    carrinho objCarrinho;
+    /**
+     * @return the modoTela
+     */
+    public String getModoTela() {
+        return modoTela;
+    }
+
+    /**
+     * @param modoTela the modoTela to set
+     */
+    public void setModoTela(String modoTela) {
+        this.modoTela = modoTela;
+    }
+
+    /**
+     * @return the objCarrinho
+     */
+    public carrinho getObjCarrinho() {
+        return objCarrinho;
+    }
+
+    /**
+     * @param objCarrinho the objCarrinho to set
+     */
+    public void setObjCarrinho(carrinho objCarrinho) {
+        this.objCarrinho = objCarrinho;
+    }
+
+    /**
+     * @return the btnAdd
+     */
+    public javax.swing.JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    /**
+     * @param btnAdd the btnAdd to set
+     */
+    public void setBtnAdd(javax.swing.JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    /**
+     * @return the btnAdd1
+     */
+    public javax.swing.JButton getBtnAdd1() {
+        return btnAdd1;
+    }
+
+    /**
+     * @param btnAdd1 the btnAdd1 to set
+     */
+    public void setBtnAdd1(javax.swing.JButton btnAdd1) {
+        this.btnAdd1 = btnAdd1;
+    }
+
+    /**
+     * @return the btnBuscarCliente
+     */
+    public javax.swing.JButton getBtnBuscarCliente() {
+        return btnBuscarCliente;
+    }
+
+    /**
+     * @param btnBuscarCliente the btnBuscarCliente to set
+     */
+    public void setBtnBuscarCliente(javax.swing.JButton btnBuscarCliente) {
+        this.btnBuscarCliente = btnBuscarCliente;
+    }
+
+    /**
+     * @return the btnCadNovClie
+     */
+    public javax.swing.JButton getBtnCadNovClie() {
+        return btnCadNovClie;
+    }
+
+    /**
+     * @param btnCadNovClie the btnCadNovClie to set
+     */
+    public void setBtnCadNovClie(javax.swing.JButton btnCadNovClie) {
+        this.btnCadNovClie = btnCadNovClie;
+    }
+
+    /**
+     * @return the btnPesquisar
+     */
+    public javax.swing.JButton getBtnPesquisar() {
+        return btnPesquisar;
+    }
+
+    /**
+     * @param btnPesquisar the btnPesquisar to set
+     */
+    public void setBtnPesquisar(javax.swing.JButton btnPesquisar) {
+        this.btnPesquisar = btnPesquisar;
+    }
+
+    /**
+     * @return the jButton3
+     */
+    public javax.swing.JButton getjButton3() {
+        return jButton3;
+    }
+
+    /**
+     * @param jButton3 the jButton3 to set
+     */
+    public void setjButton3(javax.swing.JButton jButton3) {
+        this.jButton3 = jButton3;
+    }
+
+    /**
+     * @return the jDesktopPane1
+     */
+    public javax.swing.JDesktopPane getjDesktopPane1() {
+        return jDesktopPane1;
+    }
+
+    /**
+     * @param jDesktopPane1 the jDesktopPane1 to set
+     */
+    public void setjDesktopPane1(javax.swing.JDesktopPane jDesktopPane1) {
+        this.jDesktopPane1 = jDesktopPane1;
+    }
+
+    /**
+     * @return the jDesktopPane2
+     */
+    public javax.swing.JDesktopPane getjDesktopPane2() {
+        return jDesktopPane2;
+    }
+
+    /**
+     * @param jDesktopPane2 the jDesktopPane2 to set
+     */
+    public void setjDesktopPane2(javax.swing.JDesktopPane jDesktopPane2) {
+        this.jDesktopPane2 = jDesktopPane2;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel11
+     */
+    public javax.swing.JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    /**
+     * @param jLabel11 the jLabel11 to set
+     */
+    public void setjLabel11(javax.swing.JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the jLabel7
+     */
+    public javax.swing.JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    /**
+     * @param jLabel7 the jLabel7 to set
+     */
+    public void setjLabel7(javax.swing.JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jPanel2
+     */
+    public javax.swing.JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    /**
+     * @param jPanel2 the jPanel2 to set
+     */
+    public void setjPanel2(javax.swing.JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    /**
+     * @return the jPanel3
+     */
+    public javax.swing.JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    /**
+     * @param jPanel3 the jPanel3 to set
+     */
+    public void setjPanel3(javax.swing.JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    /**
+     * @return the jPanel4
+     */
+    public javax.swing.JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    /**
+     * @param jPanel4 the jPanel4 to set
+     */
+    public void setjPanel4(javax.swing.JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jTextField6
+     */
+    public javax.swing.JTextField getjTextField6() {
+        return jTextField6;
+    }
+
+    /**
+     * @param jTextField6 the jTextField6 to set
+     */
+    public void setjTextField6(javax.swing.JTextField jTextField6) {
+        this.jTextField6 = jTextField6;
+    }
+
+    /**
+     * @return the jdcDataCompra
+     */
+    public com.toedter.calendar.JDateChooser getJdcDataCompra() {
+        return jdcDataCompra;
+    }
+
+    /**
+     * @param jdcDataCompra the jdcDataCompra to set
+     */
+    public void setJdcDataCompra(com.toedter.calendar.JDateChooser jdcDataCompra) {
+        this.jdcDataCompra = jdcDataCompra;
+    }
+
+    /**
+     * @return the lblCod
+     */
+    public javax.swing.JLabel getLblCod() {
+        return lblCod;
+    }
+
+    /**
+     * @param lblCod the lblCod to set
+     */
+    public void setLblCod(javax.swing.JLabel lblCod) {
+        this.lblCod = lblCod;
+    }
+
+    /**
+     * @return the lblDataInicio
+     */
+    public javax.swing.JLabel getLblDataInicio() {
+        return lblDataInicio;
+    }
+
+    /**
+     * @param lblDataInicio the lblDataInicio to set
+     */
+    public void setLblDataInicio(javax.swing.JLabel lblDataInicio) {
+        this.lblDataInicio = lblDataInicio;
+    }
+
+    /**
+     * @return the lblID
+     */
+    public javax.swing.JLabel getLblID() {
+        return lblID;
+    }
+
+    /**
+     * @param lblID the lblID to set
+     */
+    public void setLblID(javax.swing.JLabel lblID) {
+        this.lblID = lblID;
+    }
+
+    /**
+     * @return the lblPreco
+     */
+    public javax.swing.JLabel getLblPreco() {
+        return lblPreco;
+    }
+
+    /**
+     * @param lblPreco the lblPreco to set
+     */
+    public void setLblPreco(javax.swing.JLabel lblPreco) {
+        this.lblPreco = lblPreco;
+    }
+
+    /**
+     * @return the lblProd
+     */
+    public javax.swing.JLabel getLblProd() {
+        return lblProd;
+    }
+
+    /**
+     * @param lblProd the lblProd to set
+     */
+    public void setLblProd(javax.swing.JLabel lblProd) {
+        this.lblProd = lblProd;
+    }
+
+    /**
+     * @return the lblQtd
+     */
+    public javax.swing.JLabel getLblQtd() {
+        return lblQtd;
+    }
+
+    /**
+     * @param lblQtd the lblQtd to set
+     */
+    public void setLblQtd(javax.swing.JLabel lblQtd) {
+        this.lblQtd = lblQtd;
+    }
+
+    /**
+     * @return the lblTotal
+     */
+    public javax.swing.JLabel getLblTotal() {
+        return lblTotal;
+    }
+
+    /**
+     * @param lblTotal the lblTotal to set
+     */
+    public void setLblTotal(javax.swing.JLabel lblTotal) {
+        this.lblTotal = lblTotal;
+    }
+
+    /**
+     * @return the tblCarrinho
+     */
+    public javax.swing.JTable getTblCarrinho() {
+        return tblCarrinho;
+    }
+
+    /**
+     * @param tblCarrinho the tblCarrinho to set
+     */
+    public void setTblCarrinho(javax.swing.JTable tblCarrinho) {
+        this.tblCarrinho = tblCarrinho;
+    }
+
+    /**
+     * @return the txtClienteCarrinho
+     */
+    public javax.swing.JTextField getTxtClienteCarrinho() {
+        return txtClienteCarrinho;
+    }
+
+    /**
+     * @param txtClienteCarrinho the txtClienteCarrinho to set
+     */
+    public void setTxtClienteCarrinho(javax.swing.JTextField txtClienteCarrinho) {
+        this.txtClienteCarrinho = txtClienteCarrinho;
+    }
+
+    /**
+     * @return the txtCod
+     */
+    public javax.swing.JTextField getTxtCod() {
+        return txtCod;
+    }
+
+    /**
+     * @param txtCod the txtCod to set
+     */
+    public void setTxtCod(javax.swing.JTextField txtCod) {
+        this.txtCod = txtCod;
+    }
+
+    /**
+     * @return the txtCodCarrinho
+     */
+    public javax.swing.JTextField getTxtCodCarrinho() {
+        return txtCodCarrinho;
+    }
+
+    /**
+     * @param txtCodCarrinho the txtCodCarrinho to set
+     */
+    public void setTxtCodCarrinho(javax.swing.JTextField txtCodCarrinho) {
+        this.txtCodCarrinho = txtCodCarrinho;
+    }
+
+    /**
+     * @return the txtNome
+     */
+    public javax.swing.JFormattedTextField getTxtNome() {
+        return txtNome;
+    }
+
+    /**
+     * @param txtNome the txtNome to set
+     */
+    public void setTxtNome(javax.swing.JFormattedTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    /**
+     * @return the txtPreco
+     */
+    public javax.swing.JTextField getTxtPreco() {
+        return txtPreco;
+    }
+
+    /**
+     * @param txtPreco the txtPreco to set
+     */
+    public void setTxtPreco(javax.swing.JTextField txtPreco) {
+        this.txtPreco = txtPreco;
+    }
+
+    /**
+     * @return the txtProd
+     */
+    public javax.swing.JTextField getTxtProd() {
+        return txtProd;
+    }
+
+    /**
+     * @param txtProd the txtProd to set
+     */
+    public void setTxtProd(javax.swing.JTextField txtProd) {
+        this.txtProd = txtProd;
+    }
+
+    /**
+     * @return the txtProdCarrinho
+     */
+    public javax.swing.JTextField getTxtProdCarrinho() {
+        return txtProdCarrinho;
+    }
+
+    /**
+     * @param txtProdCarrinho the txtProdCarrinho to set
+     */
+    public void setTxtProdCarrinho(javax.swing.JTextField txtProdCarrinho) {
+        this.txtProdCarrinho = txtProdCarrinho;
+    }
+
+    /**
+     * @return the txtQtd
+     */
+    public javax.swing.JTextField getTxtQtd() {
+        return txtQtd;
+    }
+
+    /**
+     * @param txtQtd the txtQtd to set
+     */
+    public void setTxtQtd(javax.swing.JTextField txtQtd) {
+        this.txtQtd = txtQtd;
+    }
+
+    /**
+     * @return the txtQtdeCarrinho
+     */
+    public javax.swing.JTextField getTxtQtdeCarrinho() {
+        return txtQtdeCarrinho;
+    }
+
+    /**
+     * @param txtQtdeCarrinho the txtQtdeCarrinho to set
+     */
+    public void setTxtQtdeCarrinho(javax.swing.JTextField txtQtdeCarrinho) {
+        this.txtQtdeCarrinho = txtQtdeCarrinho;
+    }
+
+    /**
+     * @return the txtTotal
+     */
+    public javax.swing.JTextField getTxtTotal() {
+        return txtTotal;
+    }
+
+    /**
+     * @param txtTotal the txtTotal to set
+     */
+    public void setTxtTotal(javax.swing.JTextField txtTotal) {
+        this.txtTotal = txtTotal;
+    }
+
+    private String modoTela = "Criação";
+    private carrinho objCarrinho;
 
     /**
      * Creates new form TelaVendas
@@ -499,56 +1087,56 @@ public class TelaVendas extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 
-        String Nome = txtNome.getText();
-        int codProd = Integer.parseInt(txtCod.getText());
-        String dscProduto = txtProd.getText();
-        int qtd = Integer.parseInt(txtQtd.getText());
-        double preco = Double.parseDouble(txtPreco.getText());
+        String Nome = getTxtNome().getText();
+        int codProd = Integer.parseInt(getTxtCod().getText());
+        String dscProduto = getTxtProd().getText();
+        int qtd = Integer.parseInt(getTxtQtd().getText());
+        double preco = Double.parseDouble(getTxtPreco().getText());
         double soma = qtd * preco;
 
-        DefaultTableModel modelo = (DefaultTableModel) tblCarrinho.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) getTblCarrinho().getModel();
         modelo.addRow(new String[]{Nome, String.valueOf(codProd), dscProduto, String.valueOf(qtd), String.valueOf(preco), String.valueOf(soma)});
 
-        txtClienteCarrinho.setText(Nome);
+        getTxtClienteCarrinho().setText(Nome);
         String codprod = String.valueOf(codProd);
-        txtCodCarrinho.setText(codprod);
-        txtProdCarrinho.setText(dscProduto);
+        getTxtCodCarrinho().setText(codprod);
+        getTxtProdCarrinho().setText(dscProduto);
         String QTDE = String.valueOf(qtd);
 
-        txtQtdeCarrinho.setText(QTDE);
+        getTxtQtdeCarrinho().setText(QTDE);
         String Total = String.valueOf(soma);
-        jTextField6.setText(Total);
+        getjTextField6().setText(Total);
 
         String valorTotal = String.valueOf(soma);
-        txtTotal.setText(valorTotal);
+        getTxtTotal().setText(valorTotal);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
 
-        if (modoTela == "Criação") {
+        if (getModoTela() == "Criação") {
 
             //TODO: implementar verificação de obrigatoriedade
-            Date dataCompra = jdcDataCompra.getDate();
+            Date dataCompra = getJdcDataCompra().getDate();
             //     int IdCompra = Integer.parseInt(lblID.getText());
-            String nome = txtClienteCarrinho.getText();
-            int codProd = Integer.parseInt(txtCodCarrinho.getText());
-            String produto = txtProdCarrinho.getText();
-            int Qtde = Integer.parseInt(txtQtdeCarrinho.getText());
-            double ValorNota = Double.parseDouble(jTextField6.getText());
+            String nome = getTxtClienteCarrinho().getText();
+            int codProd = Integer.parseInt(getTxtCodCarrinho().getText());
+            String produto = getTxtProdCarrinho().getText();
+            int Qtde = Integer.parseInt(getTxtQtdeCarrinho().getText());
+            double ValorNota = Double.parseDouble(getjTextField6().getText());
             //Passo as informações para o objeto cliente (propriedade deste JFrame)
 
-            objCarrinho.setDataCompra(dataCompra);
+            getObjCarrinho().setDataCompra(dataCompra);
             // objCarrinho.setId(IdCompra);
-            objCarrinho.setNome(nome);
-            objCarrinho.setCodProd(codProd);
-            objCarrinho.setProduto(produto);
-            objCarrinho.setQtde(Qtde);
-            objCarrinho.setValorTotal(ValorNota);
+            getObjCarrinho().setNome(nome);
+            getObjCarrinho().setCodProd(codProd);
+            getObjCarrinho().setProduto(produto);
+            getObjCarrinho().setQtde(Qtde);
+            getObjCarrinho().setValorTotal(ValorNota);
 
             //Mando salvar no banco de dados usando a classe DAO
             try {
-                carrinhoDAO.Salvar(objCarrinho);
-                carrinhoDAO.atualizar(objCarrinho);
+                carrinhoDAO.Salvar(getObjCarrinho());
+                carrinhoDAO.atualizar(getObjCarrinho());
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Falha ao gravar no banco de dados\n" + e.getMessage(),
@@ -564,7 +1152,7 @@ public class TelaVendas extends javax.swing.JFrame {
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         BuscaClientes mostrarInicio = new BuscaClientes();
-        jDesktopPane1.add(mostrarInicio);
+        getjDesktopPane1().add(mostrarInicio);
         mostrarInicio.show();
         try {
             mostrarInicio.setMaximum(true);
@@ -576,13 +1164,13 @@ public class TelaVendas extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtCod.setText("Somente números");
+            this.getTxtCod().setText("Somente números");
         }
     }//GEN-LAST:event_txtCodKeyTyped
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         BuscaProdutos mostrarInicio = new BuscaProdutos();
-        jDesktopPane2.add(mostrarInicio);
+        getjDesktopPane2().add(mostrarInicio);
         mostrarInicio.show();
         try {
             mostrarInicio.setMaximum(true);
@@ -599,8 +1187,8 @@ public class TelaVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadNovClieActionPerformed
 
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
-        int qtd = Integer.parseInt(txtQtd.getText());
-        double preco = Double.parseDouble(txtPreco.getText());
+        int qtd = Integer.parseInt(getTxtQtd().getText());
+        double preco = Double.parseDouble(getTxtPreco().getText());
         double soma = qtd * preco;
 
         String.valueOf(soma);

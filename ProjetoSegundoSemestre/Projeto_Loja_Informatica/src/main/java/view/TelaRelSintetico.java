@@ -16,10 +16,135 @@ import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class TelaRelSintetico extends javax.swing.JFrame {
+
+    /**
+     * @return the btnDetalhes
+     */
+    public javax.swing.JButton getBtnDetalhes() {
+        return btnDetalhes;
+    }
+
+    /**
+     * @param btnDetalhes the btnDetalhes to set
+     */
+    public void setBtnDetalhes(javax.swing.JButton btnDetalhes) {
+        this.btnDetalhes = btnDetalhes;
+    }
+
+    /**
+     * @return the btnPesquisa
+     */
+    public javax.swing.JButton getBtnPesquisa() {
+        return btnPesquisa;
+    }
+
+    /**
+     * @param btnPesquisa the btnPesquisa to set
+     */
+    public void setBtnPesquisa(javax.swing.JButton btnPesquisa) {
+        this.btnPesquisa = btnPesquisa;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jdcDataFinal
+     */
+    public com.toedter.calendar.JDateChooser getJdcDataFinal() {
+        return jdcDataFinal;
+    }
+
+    /**
+     * @param jdcDataFinal the jdcDataFinal to set
+     */
+    public void setJdcDataFinal(com.toedter.calendar.JDateChooser jdcDataFinal) {
+        this.jdcDataFinal = jdcDataFinal;
+    }
+
+    /**
+     * @return the jdcDataFinal1
+     */
+    public com.toedter.calendar.JDateChooser getJdcDataFinal1() {
+        return jdcDataFinal1;
+    }
+
+    /**
+     * @param jdcDataFinal1 the jdcDataFinal1 to set
+     */
+    public void setJdcDataFinal1(com.toedter.calendar.JDateChooser jdcDataFinal1) {
+        this.jdcDataFinal1 = jdcDataFinal1;
+    }
+
+    /**
+     * @return the lblDataFim
+     */
+    public javax.swing.JLabel getLblDataFim() {
+        return lblDataFim;
+    }
+
+    /**
+     * @param lblDataFim the lblDataFim to set
+     */
+    public void setLblDataFim(javax.swing.JLabel lblDataFim) {
+        this.lblDataFim = lblDataFim;
+    }
+
+    /**
+     * @return the lblDataInicio
+     */
+    public javax.swing.JLabel getLblDataInicio() {
+        return lblDataInicio;
+    }
+
+    /**
+     * @param lblDataInicio the lblDataInicio to set
+     */
+    public void setLblDataInicio(javax.swing.JLabel lblDataInicio) {
+        this.lblDataInicio = lblDataInicio;
+    }
+
+    /**
+     * @return the tblResultSinte
+     */
+    public javax.swing.JTable getTblResultSinte() {
+        return tblResultSinte;
+    }
+
+    /**
+     * @param tblResultSinte the tblResultSinte to set
+     */
+    public void setTblResultSinte(javax.swing.JTable tblResultSinte) {
+        this.tblResultSinte = tblResultSinte;
+    }
 
     /**
      * Creates new form TelaRelSintetico
@@ -175,19 +300,19 @@ public class TelaRelSintetico extends javax.swing.JFrame {
         tmCarrinho.addColumn("Data");
         tmCarrinho.addColumn("Cliente");
         tmCarrinho.addColumn("Total");
-        tblResultSinte.setModel(tmCarrinho);
+        getTblResultSinte().setModel(tmCarrinho);
 
         for (carrinho c : listaCarrinho) {
             tmCarrinho.addRow(new Object[]{c.getDataCompra(), c.getNome(), c.getValorTotal()});
         }
 
-        tblResultSinte.getColumnModel().getColumn(0).setPreferredWidth(200);
-        tblResultSinte.getColumnModel().getColumn(1).setPreferredWidth(175);
-        tblResultSinte.getColumnModel().getColumn(2).setPreferredWidth(125);
+        getTblResultSinte().getColumnModel().getColumn(0).setPreferredWidth(200);
+        getTblResultSinte().getColumnModel().getColumn(1).setPreferredWidth(175);
+        getTblResultSinte().getColumnModel().getColumn(2).setPreferredWidth(125);
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
-        int linhaSelecionada = tblResultSinte.getSelectedRow();
+        int linhaSelecionada = getTblResultSinte().getSelectedRow();
         if (linhaSelecionada >= 0) {
             TelaRelaAnalitico novoArquivo = new TelaRelaAnalitico();
 

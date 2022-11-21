@@ -17,7 +17,49 @@ import javax.swing.table.DefaultTableModel;
  */
 public class BuscaClientes extends javax.swing.JInternalFrame {
 
-    Cliente objCliente;
+    /**
+     * @return the objCliente
+     */
+    public Cliente getObjCliente() {
+        return objCliente;
+    }
+
+    /**
+     * @param objCliente the objCliente to set
+     */
+    public void setObjCliente(Cliente objCliente) {
+        this.objCliente = objCliente;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the tblBuscaClientes
+     */
+    public javax.swing.JTable getTblBuscaClientes() {
+        return tblBuscaClientes;
+    }
+
+    /**
+     * @param tblBuscaClientes the tblBuscaClientes to set
+     */
+    public void setTblBuscaClientes(javax.swing.JTable tblBuscaClientes) {
+        this.tblBuscaClientes = tblBuscaClientes;
+    }
+
+    private Cliente objCliente;
 
     /**
      * Creates new form NewJInternalFrame
@@ -132,18 +174,18 @@ public class BuscaClientes extends javax.swing.JInternalFrame {
         tmClientes.addColumn("Nome");
         tmClientes.addColumn("CPF");
 
-        tblBuscaClientes.setModel(tmClientes);
+        getTblBuscaClientes().setModel(tmClientes);
 
         tmClientes.setRowCount(0);
-        tmClientes.addRow(new Object[]{objCliente.getId(), objCliente.getNome(), objCliente.getCPF()});
+        tmClientes.addRow(new Object[]{getObjCliente().getId(), getObjCliente().getNome(), getObjCliente().getCPF()});
 //        }
 
         for (Cliente c : listaCliente) {
             tmClientes.addRow(new Object[]{c.getId(), c.getNome(), c.getCPF()});
         }
 
-        tblBuscaClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblBuscaClientes.getColumnModel().getColumn(1).setPreferredWidth(300); // Nome
-        tblBuscaClientes.getColumnModel().getColumn(2).setPreferredWidth(100); //CPF
+        getTblBuscaClientes().getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        getTblBuscaClientes().getColumnModel().getColumn(1).setPreferredWidth(300); // Nome
+        getTblBuscaClientes().getColumnModel().getColumn(2).setPreferredWidth(100); //CPF
     }
 }

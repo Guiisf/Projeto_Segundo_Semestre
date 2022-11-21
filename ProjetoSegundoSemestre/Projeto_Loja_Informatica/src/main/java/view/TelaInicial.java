@@ -2,9 +2,177 @@ package view;
 
 /**
  *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class TelaInicial extends javax.swing.JFrame {
+
+    /**
+     * @return the jButton1
+     */
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    /**
+     * @param jButton1 the jButton1 to set
+     */
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    /**
+     * @return the jMenu1
+     */
+    public javax.swing.JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    /**
+     * @param jMenu1 the jMenu1 to set
+     */
+    public void setjMenu1(javax.swing.JMenu jMenu1) {
+        this.jMenu1 = jMenu1;
+    }
+
+    /**
+     * @return the jMenuBar1
+     */
+    public javax.swing.JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    /**
+     * @param jMenuBar1 the jMenuBar1 to set
+     */
+    public void setjMenuBar1(javax.swing.JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    /**
+     * @return the jMenuItem2
+     */
+    public javax.swing.JMenuItem getjMenuItem2() {
+        return jMenuItem2;
+    }
+
+    /**
+     * @param jMenuItem2 the jMenuItem2 to set
+     */
+    public void setjMenuItem2(javax.swing.JMenuItem jMenuItem2) {
+        this.jMenuItem2 = jMenuItem2;
+    }
+
+    /**
+     * @return the jmArquivo
+     */
+    public javax.swing.JMenu getJmArquivo() {
+        return jmArquivo;
+    }
+
+    /**
+     * @param jmArquivo the jmArquivo to set
+     */
+    public void setJmArquivo(javax.swing.JMenu jmArquivo) {
+        this.jmArquivo = jmArquivo;
+    }
+
+    /**
+     * @return the jmClientes
+     */
+    public javax.swing.JMenu getJmClientes() {
+        return jmClientes;
+    }
+
+    /**
+     * @param jmClientes the jmClientes to set
+     */
+    public void setJmClientes(javax.swing.JMenu jmClientes) {
+        this.jmClientes = jmClientes;
+    }
+
+    /**
+     * @return the jmProdutos
+     */
+    public javax.swing.JMenu getJmProdutos() {
+        return jmProdutos;
+    }
+
+    /**
+     * @param jmProdutos the jmProdutos to set
+     */
+    public void setJmProdutos(javax.swing.JMenu jmProdutos) {
+        this.jmProdutos = jmProdutos;
+    }
+
+    /**
+     * @return the jmiCadProd
+     */
+    public javax.swing.JMenuItem getJmiCadProd() {
+        return jmiCadProd;
+    }
+
+    /**
+     * @param jmiCadProd the jmiCadProd to set
+     */
+    public void setJmiCadProd(javax.swing.JMenuItem jmiCadProd) {
+        this.jmiCadProd = jmiCadProd;
+    }
+
+    /**
+     * @return the jmiCadastrar
+     */
+    public javax.swing.JMenuItem getJmiCadastrar() {
+        return jmiCadastrar;
+    }
+
+    /**
+     * @param jmiCadastrar the jmiCadastrar to set
+     */
+    public void setJmiCadastrar(javax.swing.JMenuItem jmiCadastrar) {
+        this.jmiCadastrar = jmiCadastrar;
+    }
+
+    /**
+     * @return the jmiConsuProd
+     */
+    public javax.swing.JMenuItem getJmiConsuProd() {
+        return jmiConsuProd;
+    }
+
+    /**
+     * @param jmiConsuProd the jmiConsuProd to set
+     */
+    public void setJmiConsuProd(javax.swing.JMenuItem jmiConsuProd) {
+        this.jmiConsuProd = jmiConsuProd;
+    }
+
+    /**
+     * @return the jmiPesq
+     */
+    public javax.swing.JMenuItem getJmiPesq() {
+        return jmiPesq;
+    }
+
+    /**
+     * @param jmiPesq the jmiPesq to set
+     */
+    public void setJmiPesq(javax.swing.JMenuItem jmiPesq) {
+        this.jmiPesq = jmiPesq;
+    }
+
+    /**
+     * @return the jmiSair
+     */
+    public javax.swing.JMenuItem getJmiSair() {
+        return jmiSair;
+    }
+
+    /**
+     * @param jmiSair the jmiSair to set
+     */
+    public void setJmiSair(javax.swing.JMenuItem jmiSair) {
+        this.jmiSair = jmiSair;
+    }
 
     /**
      * Creates new form TelaInicial

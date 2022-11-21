@@ -26,8 +26,540 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
-    public String modoTela = "Criação";
-    Cliente objCliente;
+    /**
+     * @return the modoTela
+     */
+    public String getModoTela() {
+        return modoTela;
+    }
+
+    /**
+     * @param modoTela the modoTela to set
+     */
+    public void setModoTela(String modoTela) {
+        this.modoTela = modoTela;
+    }
+
+    /**
+     * @return the objCliente
+     */
+    public Cliente getObjCliente() {
+        return objCliente;
+    }
+
+    /**
+     * @param objCliente the objCliente to set
+     */
+    public void setObjCliente(Cliente objCliente) {
+        this.objCliente = objCliente;
+    }
+
+    /**
+     * @return the btnAdd
+     */
+    public javax.swing.JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    /**
+     * @param btnAdd the btnAdd to set
+     */
+    public void setBtnAdd(javax.swing.JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    /**
+     * @return the btnCancelar
+     */
+    public javax.swing.JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    /**
+     * @param btnCancelar the btnCancelar to set
+     */
+    public void setBtnCancelar(javax.swing.JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    /**
+     * @return the btnSalvar
+     */
+    public javax.swing.JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
+    /**
+     * @param btnSalvar the btnSalvar to set
+     */
+    public void setBtnSalvar(javax.swing.JButton btnSalvar) {
+        this.btnSalvar = btnSalvar;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel11
+     */
+    public javax.swing.JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    /**
+     * @param jLabel11 the jLabel11 to set
+     */
+    public void setjLabel11(javax.swing.JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    /**
+     * @return the jLabel13
+     */
+    public javax.swing.JLabel getjLabel13() {
+        return jLabel13;
+    }
+
+    /**
+     * @param jLabel13 the jLabel13 to set
+     */
+    public void setjLabel13(javax.swing.JLabel jLabel13) {
+        this.jLabel13 = jLabel13;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the jLabel6
+     */
+    public javax.swing.JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    /**
+     * @param jLabel6 the jLabel6 to set
+     */
+    public void setjLabel6(javax.swing.JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    /**
+     * @return the jLabel7
+     */
+    public javax.swing.JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    /**
+     * @param jLabel7 the jLabel7 to set
+     */
+    public void setjLabel7(javax.swing.JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jPanel2
+     */
+    public javax.swing.JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    /**
+     * @param jPanel2 the jPanel2 to set
+     */
+    public void setjPanel2(javax.swing.JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    /**
+     * @return the jPanel3
+     */
+    public javax.swing.JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    /**
+     * @param jPanel3 the jPanel3 to set
+     */
+    public void setjPanel3(javax.swing.JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    /**
+     * @return the jPanel4
+     */
+    public javax.swing.JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    /**
+     * @param jPanel4 the jPanel4 to set
+     */
+    public void setjPanel4(javax.swing.JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
+    }
+
+    /**
+     * @return the jPanel6
+     */
+    public javax.swing.JPanel getjPanel6() {
+        return jPanel6;
+    }
+
+    /**
+     * @param jPanel6 the jPanel6 to set
+     */
+    public void setjPanel6(javax.swing.JPanel jPanel6) {
+        this.jPanel6 = jPanel6;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jcbEstaCivi
+     */
+    public javax.swing.JComboBox getJcbEstaCivi() {
+        return jcbEstaCivi;
+    }
+
+    /**
+     * @param jcbEstaCivi the jcbEstaCivi to set
+     */
+    public void setJcbEstaCivi(javax.swing.JComboBox jcbEstaCivi) {
+        this.jcbEstaCivi = jcbEstaCivi;
+    }
+
+    /**
+     * @return the jcbEstado
+     */
+    public javax.swing.JComboBox getJcbEstado() {
+        return jcbEstado;
+    }
+
+    /**
+     * @param jcbEstado the jcbEstado to set
+     */
+    public void setJcbEstado(javax.swing.JComboBox jcbEstado) {
+        this.jcbEstado = jcbEstado;
+    }
+
+    /**
+     * @return the jcbSexo
+     */
+    public javax.swing.JComboBox getJcbSexo() {
+        return jcbSexo;
+    }
+
+    /**
+     * @param jcbSexo the jcbSexo to set
+     */
+    public void setJcbSexo(javax.swing.JComboBox jcbSexo) {
+        this.jcbSexo = jcbSexo;
+    }
+
+    /**
+     * @return the jdcNascimento
+     */
+    public com.toedter.calendar.JDateChooser getJdcNascimento() {
+        return jdcNascimento;
+    }
+
+    /**
+     * @param jdcNascimento the jdcNascimento to set
+     */
+    public void setJdcNascimento(com.toedter.calendar.JDateChooser jdcNascimento) {
+        this.jdcNascimento = jdcNascimento;
+    }
+
+    /**
+     * @return the lblCEP
+     */
+    public javax.swing.JLabel getLblCEP() {
+        return lblCEP;
+    }
+
+    /**
+     * @param lblCEP the lblCEP to set
+     */
+    public void setLblCEP(javax.swing.JLabel lblCEP) {
+        this.lblCEP = lblCEP;
+    }
+
+    /**
+     * @return the lblCidade
+     */
+    public javax.swing.JLabel getLblCidade() {
+        return lblCidade;
+    }
+
+    /**
+     * @param lblCidade the lblCidade to set
+     */
+    public void setLblCidade(javax.swing.JLabel lblCidade) {
+        this.lblCidade = lblCidade;
+    }
+
+    /**
+     * @return the lblEstado
+     */
+    public javax.swing.JLabel getLblEstado() {
+        return lblEstado;
+    }
+
+    /**
+     * @param lblEstado the lblEstado to set
+     */
+    public void setLblEstado(javax.swing.JLabel lblEstado) {
+        this.lblEstado = lblEstado;
+    }
+
+    /**
+     * @return the lblID
+     */
+    public javax.swing.JLabel getLblID() {
+        return lblID;
+    }
+
+    /**
+     * @param lblID the lblID to set
+     */
+    public void setLblID(javax.swing.JLabel lblID) {
+        this.lblID = lblID;
+    }
+
+    /**
+     * @return the lblRua
+     */
+    public javax.swing.JLabel getLblRua() {
+        return lblRua;
+    }
+
+    /**
+     * @param lblRua the lblRua to set
+     */
+    public void setLblRua(javax.swing.JLabel lblRua) {
+        this.lblRua = lblRua;
+    }
+
+    /**
+     * @return the tblCliente
+     */
+    public javax.swing.JTable getTblCliente() {
+        return tblCliente;
+    }
+
+    /**
+     * @param tblCliente the tblCliente to set
+     */
+    public void setTblCliente(javax.swing.JTable tblCliente) {
+        this.tblCliente = tblCliente;
+    }
+
+    /**
+     * @return the txtCEP
+     */
+    public javax.swing.JFormattedTextField getTxtCEP() {
+        return txtCEP;
+    }
+
+    /**
+     * @param txtCEP the txtCEP to set
+     */
+    public void setTxtCEP(javax.swing.JFormattedTextField txtCEP) {
+        this.txtCEP = txtCEP;
+    }
+
+    /**
+     * @return the txtCPF
+     */
+    public javax.swing.JFormattedTextField getTxtCPF() {
+        return txtCPF;
+    }
+
+    /**
+     * @param txtCPF the txtCPF to set
+     */
+    public void setTxtCPF(javax.swing.JFormattedTextField txtCPF) {
+        this.txtCPF = txtCPF;
+    }
+
+    /**
+     * @return the txtCelular
+     */
+    public javax.swing.JTextField getTxtCelular() {
+        return txtCelular;
+    }
+
+    /**
+     * @param txtCelular the txtCelular to set
+     */
+    public void setTxtCelular(javax.swing.JTextField txtCelular) {
+        this.txtCelular = txtCelular;
+    }
+
+    /**
+     * @return the txtCidade
+     */
+    public javax.swing.JTextField getTxtCidade() {
+        return txtCidade;
+    }
+
+    /**
+     * @param txtCidade the txtCidade to set
+     */
+    public void setTxtCidade(javax.swing.JTextField txtCidade) {
+        this.txtCidade = txtCidade;
+    }
+
+    /**
+     * @return the txtEmail
+     */
+    public javax.swing.JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    /**
+     * @param txtEmail the txtEmail to set
+     */
+    public void setTxtEmail(javax.swing.JTextField txtEmail) {
+        this.txtEmail = txtEmail;
+    }
+
+    /**
+     * @return the txtNome
+     */
+    public javax.swing.JFormattedTextField getTxtNome() {
+        return txtNome;
+    }
+
+    /**
+     * @param txtNome the txtNome to set
+     */
+    public void setTxtNome(javax.swing.JFormattedTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    /**
+     * @return the txtRua
+     */
+    public javax.swing.JTextField getTxtRua() {
+        return txtRua;
+    }
+
+    /**
+     * @param txtRua the txtRua to set
+     */
+    public void setTxtRua(javax.swing.JTextField txtRua) {
+        this.txtRua = txtRua;
+    }
+
+    /**
+     * @return the txtTelefone
+     */
+    public javax.swing.JTextField getTxtTelefone() {
+        return txtTelefone;
+    }
+
+    /**
+     * @param txtTelefone the txtTelefone to set
+     */
+    public void setTxtTelefone(javax.swing.JTextField txtTelefone) {
+        this.txtTelefone = txtTelefone;
+    }
+
+    private String modoTela = "Criação";
+    private Cliente objCliente;
 
     /**
      * Creates new form CadastrarCliente
@@ -473,42 +1005,42 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        int id = Integer.parseInt(lblID.getText());
+        int id = Integer.parseInt(getLblID().getText());
 
-        if (modoTela == "Criação") {
+        if (getModoTela() == "Criação") {
 
-            String Nome = txtNome.getText();
-            String cpf = txtCPF.getText();
+            String Nome = getTxtNome().getText();
+            String cpf = getTxtCPF().getText();
 
-            Date dataNascimneto = jdcNascimento.getDate();
+            Date dataNascimneto = getJdcNascimento().getDate();
             String Sexo = "";
-            Sexo = String.valueOf(jcbSexo.getSelectedItem());
+            Sexo = String.valueOf(getJcbSexo().getSelectedItem());
             String EstadoCivil = "";
-            EstadoCivil = String.valueOf(jcbEstaCivi.getSelectedItem());
-            String Rua = txtRua.getText();
-            String Cidade = txtCidade.getText();
+            EstadoCivil = String.valueOf(getJcbEstaCivi().getSelectedItem());
+            String Rua = getTxtRua().getText();
+            String Cidade = getTxtCidade().getText();
             String Estado = "";
-            Estado = String.valueOf(jcbEstado.getSelectedItem());
-            int Cep = Integer.parseInt(txtCEP.getText().replace("-", ""));
-            long Telefone = Long.parseLong(txtTelefone.getText().replace("-", "").trim());
-            long Celular = Long.parseLong(txtCelular.getText().replace("-", "").trim());
-            String Email = txtEmail.getText();
+            Estado = String.valueOf(getJcbEstado().getSelectedItem());
+            int Cep = Integer.parseInt(getTxtCEP().getText().replace("-", ""));
+            long Telefone = Long.parseLong(getTxtTelefone().getText().replace("-", "").trim());
+            long Celular = Long.parseLong(getTxtCelular().getText().replace("-", "").trim());
+            String Email = getTxtEmail().getText();
 
-            objCliente.setNome(txtNome.getText());
-            objCliente.setCPF(cpf);
-            objCliente.setData_Nascimento(dataNascimneto);
-            objCliente.setSexo((String) jcbSexo.getSelectedItem());
-            objCliente.setEstado_civil((String) jcbEstaCivi.getSelectedItem());
-            objCliente.setRua(txtRua.getText());
-            objCliente.setCidade(txtCidade.getText());
-            objCliente.setEstado((String) jcbEstado.getSelectedItem());
-            objCliente.setCep(txtCEP.getText());
-            objCliente.setTelefone(txtTelefone.getText());
-            objCliente.setCelular(txtCelular.getText());
-            objCliente.setEmail(txtEmail.getText());
+            getObjCliente().setNome(getTxtNome().getText());
+            getObjCliente().setCPF(cpf);
+            getObjCliente().setData_Nascimento(dataNascimneto);
+            getObjCliente().setSexo((String) getJcbSexo().getSelectedItem());
+            getObjCliente().setEstado_civil((String) getJcbEstaCivi().getSelectedItem());
+            getObjCliente().setRua(getTxtRua().getText());
+            getObjCliente().setCidade(getTxtCidade().getText());
+            getObjCliente().setEstado((String) getJcbEstado().getSelectedItem());
+            getObjCliente().setCep(getTxtCEP().getText());
+            getObjCliente().setTelefone(getTxtTelefone().getText());
+            getObjCliente().setCelular(getTxtCelular().getText());
+            getObjCliente().setEmail(getTxtEmail().getText());
 
             try {
-                clienteDAO.Salvar(objCliente);
+                clienteDAO.Salvar(getObjCliente());
                 JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!", "Cliente Cadastrado", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Falha ao gravar no banco de dados\n" + e.getMessage(),
@@ -517,37 +1049,37 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         } else { //Modo de alteração
 
-            String Nome = txtNome.getText();
-            String cpf = txtCPF.getText();
+            String Nome = getTxtNome().getText();
+            String cpf = getTxtCPF().getText();
 
-            Date dataNascimneto = jdcNascimento.getDate();
+            Date dataNascimneto = getJdcNascimento().getDate();
             String Sexo = "";
-            Sexo = String.valueOf(jcbSexo.getSelectedItem());
+            Sexo = String.valueOf(getJcbSexo().getSelectedItem());
             String EstadoCivil = "";
-            EstadoCivil = String.valueOf(jcbEstaCivi.getSelectedItem());
-            String Rua = txtRua.getText();
-            String Cidade = txtCidade.getText();
+            EstadoCivil = String.valueOf(getJcbEstaCivi().getSelectedItem());
+            String Rua = getTxtRua().getText();
+            String Cidade = getTxtCidade().getText();
             String Estado = "";
-            Estado = String.valueOf(jcbEstado.getSelectedItem());
-            int Cep = Integer.parseInt(txtCEP.getText().replace("-", ""));
-            long Telefone = Long.parseLong(txtTelefone.getText().replace("-", "").trim());
-            long Celular = Long.parseLong(txtCelular.getText().replace("-", "").trim());
-            String Email = txtEmail.getText();
+            Estado = String.valueOf(getJcbEstado().getSelectedItem());
+            int Cep = Integer.parseInt(getTxtCEP().getText().replace("-", ""));
+            long Telefone = Long.parseLong(getTxtTelefone().getText().replace("-", "").trim());
+            long Celular = Long.parseLong(getTxtCelular().getText().replace("-", "").trim());
+            String Email = getTxtEmail().getText();
 
-            objCliente.setNome(txtNome.getText());
-            objCliente.setCPF(cpf);
-            objCliente.setData_Nascimento(dataNascimneto);
-            objCliente.setSexo((String) jcbSexo.getSelectedItem());
-            objCliente.setEstado_civil((String) jcbEstaCivi.getSelectedItem());
-            objCliente.setRua(txtRua.getText());
-            objCliente.setCidade(txtCidade.getText());
-            objCliente.setEstado((String) jcbEstado.getSelectedItem());
-            objCliente.setCep(txtCEP.getText());
-            objCliente.setTelefone(txtTelefone.getText());
-            objCliente.setCelular(txtCelular.getText());
-            objCliente.setEmail(txtEmail.getText());
+            getObjCliente().setNome(getTxtNome().getText());
+            getObjCliente().setCPF(cpf);
+            getObjCliente().setData_Nascimento(dataNascimneto);
+            getObjCliente().setSexo((String) getJcbSexo().getSelectedItem());
+            getObjCliente().setEstado_civil((String) getJcbEstaCivi().getSelectedItem());
+            getObjCliente().setRua(getTxtRua().getText());
+            getObjCliente().setCidade(getTxtCidade().getText());
+            getObjCliente().setEstado((String) getJcbEstado().getSelectedItem());
+            getObjCliente().setCep(getTxtCEP().getText());
+            getObjCliente().setTelefone(getTxtTelefone().getText());
+            getObjCliente().setCelular(getTxtCelular().getText());
+            getObjCliente().setEmail(getTxtEmail().getText());
             try {
-                boolean retorno = clienteDAO.atualizar(objCliente);
+                boolean retorno = clienteDAO.atualizar(getObjCliente());
 
                 JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!", "Cliente Cadastrado", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
@@ -566,7 +1098,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtTelefone.setText("Somente números");
+            this.getTxtTelefone().setText("Somente números");
         }
     }//GEN-LAST:event_txtTelefoneKeyTyped
 
@@ -574,7 +1106,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtCPF.setText("Somente números");
+            this.getTxtCPF().setText("Somente números");
         }
     }//GEN-LAST:event_txtCPFKeyTyped
 
@@ -582,7 +1114,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtCelular.setText("Somente números");
+            this.getTxtCelular().setText("Somente números");
         }
     }//GEN-LAST:event_txtCelularKeyTyped
 
@@ -600,47 +1132,47 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 
-        if (txtNome.getText().trim().equals("")) {
+        if (getTxtNome().getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite o nome completo ");
             return;
         }
 
-        if (txtEmail.getText().trim().equals("")) {
+        if (getTxtEmail().getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite o E-mail");
             return;
 
         }
 
-        if (txtTelefone.getText().replace("-", "").trim().equals("")) {
+        if (getTxtTelefone().getText().replace("-", "").trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite o telefone");
             return;
         }
 
-        if (txtCPF.getText().replace(".", "").replace("-", "").trim().equals("")) {
+        if (getTxtCPF().getText().replace(".", "").replace("-", "").trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite o CPF");
             return;
         }
 
-        int idCliente = Integer.parseInt(lblID.getText());
-        String Nome = txtNome.getText();
-        String cpf = txtCPF.getText();
+        int idCliente = Integer.parseInt(getLblID().getText());
+        String Nome = getTxtNome().getText();
+        String cpf = getTxtCPF().getText();
 
         Date nascimento = new Date();
-        Date dataNascimneto = jdcNascimento.getDate();
+        Date dataNascimneto = getJdcNascimento().getDate();
         String Sexo = "";
-        Sexo = String.valueOf(jcbSexo.getSelectedItem());
+        Sexo = String.valueOf(getJcbSexo().getSelectedItem());
         String EstadoCivil = "";
-        EstadoCivil = String.valueOf(jcbEstaCivi.getSelectedItem());
-        String Rua = txtRua.getText();
-        String Cidade = txtCidade.getText();
+        EstadoCivil = String.valueOf(getJcbEstaCivi().getSelectedItem());
+        String Rua = getTxtRua().getText();
+        String Cidade = getTxtCidade().getText();
         String Estado = "";
-        Estado = String.valueOf(jcbEstado.getSelectedItem());
-        int Cep = Integer.parseInt(txtCEP.getText().replace("-", ""));
-        long Telefone = Long.parseLong(txtTelefone.getText().replace("-", "").trim());
-        long Celular = Long.parseLong(txtCelular.getText().replace("-", "").trim());
-        String Email = txtEmail.getText();
+        Estado = String.valueOf(getJcbEstado().getSelectedItem());
+        int Cep = Integer.parseInt(getTxtCEP().getText().replace("-", ""));
+        long Telefone = Long.parseLong(getTxtTelefone().getText().replace("-", "").trim());
+        long Celular = Long.parseLong(getTxtCelular().getText().replace("-", "").trim());
+        String Email = getTxtEmail().getText();
 
-        DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) getTblCliente().getModel();
         modelo.addRow(new String[]{String.valueOf(idCliente), Nome, String.valueOf(cpf), String.valueOf(dataNascimneto), Sexo, EstadoCivil,
             Rua, Cidade, Estado, String.valueOf(Cep), String.valueOf(Telefone), String.valueOf(Celular), Email});
 

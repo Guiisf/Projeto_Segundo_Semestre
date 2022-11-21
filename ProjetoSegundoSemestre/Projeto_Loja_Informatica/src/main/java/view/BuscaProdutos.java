@@ -13,11 +13,53 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author guilh
+ * @author Guilherme.ferreira
  */
 public class BuscaProdutos extends javax.swing.JInternalFrame {
 
-    Produto objProduto;
+    /**
+     * @return the objProduto
+     */
+    public Produto getObjProduto() {
+        return objProduto;
+    }
+
+    /**
+     * @param objProduto the objProduto to set
+     */
+    public void setObjProduto(Produto objProduto) {
+        this.objProduto = objProduto;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the tblBuscaProdutos
+     */
+    public javax.swing.JTable getTblBuscaProdutos() {
+        return tblBuscaProdutos;
+    }
+
+    /**
+     * @param tblBuscaProdutos the tblBuscaProdutos to set
+     */
+    public void setTblBuscaProdutos(javax.swing.JTable tblBuscaProdutos) {
+        this.tblBuscaProdutos = tblBuscaProdutos;
+    }
+
+    private Produto objProduto;
 
     /**
      * Creates new form BuscaProdutos
@@ -113,10 +155,10 @@ public class BuscaProdutos extends javax.swing.JInternalFrame {
         tmProdutos.addColumn("Valor");
        
 
-        tblBuscaProdutos.setModel(tmProdutos);
+        getTblBuscaProdutos().setModel(tmProdutos);
 
         tmProdutos.setRowCount(0);
-        tmProdutos.addRow(new Object[]{objProduto.getCodigo(), objProduto.getDescricao(), objProduto.getPreco()});
+        tmProdutos.addRow(new Object[]{getObjProduto().getCodigo(), getObjProduto().getDescricao(), getObjProduto().getPreco()});
 //        }
 
         for (Produto p : listaProduto) {
@@ -124,8 +166,8 @@ public class BuscaProdutos extends javax.swing.JInternalFrame {
         }
 
      
-        tblBuscaProdutos.getColumnModel().getColumn(0).setPreferredWidth(35); // Nome
-        tblBuscaProdutos.getColumnModel().getColumn(1).setPreferredWidth(200); //CPF
-         tblBuscaProdutos.getColumnModel().getColumn(2).setPreferredWidth(250); //Valor
+        getTblBuscaProdutos().getColumnModel().getColumn(0).setPreferredWidth(35); // Nome
+        getTblBuscaProdutos().getColumnModel().getColumn(1).setPreferredWidth(200); //CPF
+         getTblBuscaProdutos().getColumnModel().getColumn(2).setPreferredWidth(250); //Valor
     }
 }

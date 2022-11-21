@@ -19,7 +19,133 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaConsultaCliente extends javax.swing.JFrame {
 
-    Cliente objCliente;
+    /**
+     * @return the objCliente
+     */
+    public Cliente getObjCliente() {
+        return objCliente;
+    }
+
+    /**
+     * @param objCliente the objCliente to set
+     */
+    public void setObjCliente(Cliente objCliente) {
+        this.objCliente = objCliente;
+    }
+
+    /**
+     * @return the btnAlterar
+     */
+    public javax.swing.JButton getBtnAlterar() {
+        return btnAlterar;
+    }
+
+    /**
+     * @param btnAlterar the btnAlterar to set
+     */
+    public void setBtnAlterar(javax.swing.JButton btnAlterar) {
+        this.btnAlterar = btnAlterar;
+    }
+
+    /**
+     * @return the btnExcluir
+     */
+    public javax.swing.JButton getBtnExcluir() {
+        return btnExcluir;
+    }
+
+    /**
+     * @param btnExcluir the btnExcluir to set
+     */
+    public void setBtnExcluir(javax.swing.JButton btnExcluir) {
+        this.btnExcluir = btnExcluir;
+    }
+
+    /**
+     * @return the btnPesquisar
+     */
+    public javax.swing.JButton getBtnPesquisar() {
+        return btnPesquisar;
+    }
+
+    /**
+     * @param btnPesquisar the btnPesquisar to set
+     */
+    public void setBtnPesquisar(javax.swing.JButton btnPesquisar) {
+        this.btnPesquisar = btnPesquisar;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the tblClientes
+     */
+    public javax.swing.JTable getTblClientes() {
+        return tblClientes;
+    }
+
+    /**
+     * @param tblClientes the tblClientes to set
+     */
+    public void setTblClientes(javax.swing.JTable tblClientes) {
+        this.tblClientes = tblClientes;
+    }
+
+    /**
+     * @return the txtNome
+     */
+    public javax.swing.JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    /**
+     * @param txtNome the txtNome to set
+     */
+    public void setTxtNome(javax.swing.JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    private Cliente objCliente;
 
     /**
      * Creates new form Tela Consulta de clientes
@@ -164,22 +290,22 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-        if (tblClientes.getRowCount() > 0) {
+        if (getTblClientes().getRowCount() > 0) {
             
-            int numeroLinha = tblClientes.getSelectedRow();
+            int numeroLinha = getTblClientes().getSelectedRow();
 
            
-            int IDcliente = Integer.parseInt(tblClientes.getModel().getValueAt(numeroLinha, 0).toString());
-            String nome = tblClientes.getModel().getValueAt(numeroLinha, 1).toString();
-            String cpf = tblClientes.getModel().getValueAt(numeroLinha, 2).toString();
+            int IDcliente = Integer.parseInt(getTblClientes().getModel().getValueAt(numeroLinha, 0).toString());
+            String nome = getTblClientes().getModel().getValueAt(numeroLinha, 1).toString();
+            String cpf = getTblClientes().getModel().getValueAt(numeroLinha, 2).toString();
 
-            objCliente.setId(IDcliente);
-            objCliente.setNome(nome);
-            objCliente.setCPF(cpf);
+            getObjCliente().setId(IDcliente);
+            getObjCliente().setNome(nome);
+            getObjCliente().setCPF(cpf);
 
           
-            TelaCadastroCliente telaCadastro = new TelaCadastroCliente(objCliente);
-            telaCadastro.modoTela = "Alteração";
+            TelaCadastroCliente telaCadastro = new TelaCadastroCliente(getObjCliente());
+            telaCadastro.setModoTela("Alteração");
 
             
             telaCadastro.setVisible(true);
@@ -191,10 +317,10 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        int linhaSelecionada = tblClientes.getSelectedRow();
+        int linhaSelecionada = getTblClientes().getSelectedRow();
         if (linhaSelecionada > 0) {
 
-            int id = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
+            int id = Integer.parseInt(getTblClientes().getValueAt(linhaSelecionada, 0).toString());
             boolean retorno = clienteDAO.excluir(id);
             if (retorno) {
                 JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
@@ -206,46 +332,46 @@ public class TelaConsultaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(txtNome.getText());
+        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(getTxtNome().getText());
 
         DefaultTableModel tmCliente = new DefaultTableModel();
         tmCliente.addColumn("ID");
         tmCliente.addColumn("Nome");
         tmCliente.addColumn("CPF");
-        tblClientes.setModel(tmCliente);
+        getTblClientes().setModel(tmCliente);
 
         for (Cliente c : listaCliente) {
             tmCliente.addRow(new Object[]{c.getId(), c.getNome(), c.getCPF()});
         }
         //Defino o tamanho para cada coluna
-        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(275);
-        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(125);
+        getTblClientes().getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        getTblClientes().getColumnModel().getColumn(1).setPreferredWidth(275);
+        getTblClientes().getColumnModel().getColumn(2).setPreferredWidth(125);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     public void CarregarJTable() {
         ;
 
-        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(txtNome.getText());
+        ArrayList<Cliente> listaCliente = clienteDAO.consultarClientes(getTxtNome().getText());
 
         DefaultTableModel tmClientes = new DefaultTableModel();
         tmClientes.addColumn("ID");
         tmClientes.addColumn("Nome");
         tmClientes.addColumn("CPF");
 
-        tblClientes.setModel(tmClientes);
+        getTblClientes().setModel(tmClientes);
 
         tmClientes.setRowCount(0);
-        tmClientes.addRow(new Object[]{objCliente.getId(), objCliente.getNome(), objCliente.getCPF()});
+        tmClientes.addRow(new Object[]{getObjCliente().getId(), getObjCliente().getNome(), getObjCliente().getCPF()});
 //        }
 
         for (Cliente c : listaCliente) {
             tmClientes.addRow(new Object[]{c.getId(), c.getNome(), c.getCPF()});
         }
 
-        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(300); // Nome
-        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(100); //CPF
+        getTblClientes().getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        getTblClientes().getColumnModel().getColumn(1).setPreferredWidth(300); // Nome
+        getTblClientes().getColumnModel().getColumn(2).setPreferredWidth(100); //CPF
     }
 
     /**

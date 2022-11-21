@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import utils.GerenciadorConexao;
 
 /**
- *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class produtosDAO {
 
@@ -43,7 +42,6 @@ public class produtosDAO {
             instrucaoSQL.setString(2, pProduto.getDescricao());
             instrucaoSQL.setInt(3, pProduto.getQtde());
             instrucaoSQL.setDouble(4, pProduto.getPreco());
-            
 
             int linhasAfetadas = instrucaoSQL.executeUpdate();
 
@@ -99,7 +97,7 @@ public class produtosDAO {
             instrucaoSQL = conexao.prepareStatement("UPDATE produtos SET descricao=?, Qtde=?, preco=? WHERE  codProd=? ");
 
             //Adiciono os parâmetros ao meu comando SQL
-          instrucaoSQL.setInt(1, pProduto.getCodigo());
+            instrucaoSQL.setInt(1, pProduto.getCodigo());
             instrucaoSQL.setString(2, pProduto.getDescricao());
             instrucaoSQL.setInt(3, pProduto.getQtde());
             instrucaoSQL.setDouble(3, pProduto.getPreco());
@@ -270,8 +268,8 @@ public class produtosDAO {
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getDouble("preco"));
                 prod.setQtde(rs.getInt("Qtde"));
-                
-               listaProduto.add(prod);
+
+                listaProduto.add(prod);
             }
 
         } catch (SQLException | ClassNotFoundException ex) {

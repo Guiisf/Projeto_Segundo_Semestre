@@ -15,7 +15,49 @@ import javax.swing.table.DefaultTableModel;
  * @author guilh
  */
 public class TelaRelaAnalitico extends javax.swing.JFrame {
-      carrinho objCarrinho;
+
+    /**
+     * @return the objCarrinho
+     */
+    public carrinho getObjCarrinho() {
+        return objCarrinho;
+    }
+
+    /**
+     * @param objCarrinho the objCarrinho to set
+     */
+    public void setObjCarrinho(carrinho objCarrinho) {
+        this.objCarrinho = objCarrinho;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the tblResultAnali
+     */
+    public javax.swing.JTable getTblResultAnali() {
+        return tblResultAnali;
+    }
+
+    /**
+     * @param tblResultAnali the tblResultAnali to set
+     */
+    public void setTblResultAnali(javax.swing.JTable tblResultAnali) {
+        this.tblResultAnali = tblResultAnali;
+    }
+      private carrinho objCarrinho;
 
     /**
      * Creates new form TelaRelaAnalitico
@@ -133,20 +175,20 @@ public class TelaRelaAnalitico extends javax.swing.JFrame {
         tmCarrinho.addColumn("Valor unit");
        
 
-        tblResultAnali.setModel(tmCarrinho);
+        getTblResultAnali().setModel(tmCarrinho);
 
         tmCarrinho.setRowCount(0);
-        tmCarrinho.addRow(new Object[]{objCarrinho.getNome(),objCarrinho.getProduto(), objCarrinho.getQtde(), objCarrinho.getValorUnit()});
+        tmCarrinho.addRow(new Object[]{getObjCarrinho().getNome(),getObjCarrinho().getProduto(), getObjCarrinho().getQtde(), getObjCarrinho().getValorUnit()});
       
 
         for (carrinho carr : listaCarrinho) {
             tmCarrinho.addRow(new Object[]{carr.getNome(),carr.getProduto(), carr.getQtde(), carr.getValorUnit()});
         }
 
-      tblResultAnali.getColumnModel().getColumn(0).setPreferredWidth(100); 
-        tblResultAnali.getColumnModel().getColumn(1).setPreferredWidth(100); 
-        tblResultAnali.getColumnModel().getColumn(2).setPreferredWidth(200); 
-         tblResultAnali.getColumnModel().getColumn(3).setPreferredWidth(250); 
+        getTblResultAnali().getColumnModel().getColumn(0).setPreferredWidth(100); 
+        getTblResultAnali().getColumnModel().getColumn(1).setPreferredWidth(100); 
+        getTblResultAnali().getColumnModel().getColumn(2).setPreferredWidth(200); 
+         getTblResultAnali().getColumnModel().getColumn(3).setPreferredWidth(250); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

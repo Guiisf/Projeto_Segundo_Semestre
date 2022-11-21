@@ -17,8 +17,7 @@ import java.util.Date;
 import utils.GerenciadorConexao;
 
 /**
- *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class carrinhoDAO {
 
@@ -81,7 +80,7 @@ public class carrinhoDAO {
 
         return retorno;
     }
-    
+
     public static boolean atualizar(carrinho pCarrinho) {
         boolean retorno = false;
         Connection conexao = null;
@@ -97,14 +96,11 @@ public class carrinhoDAO {
 
             conexao = DriverManager.getConnection(URL, "root", "root");
 
-            instrucaoSQL = conexao.prepareStatement("update Produtos inner join carrinho on Produtos.codProd = ? carrinho.codProd SET Produtos.Qtde = ? Produtos.Qtde - carrinho.Qtde\n" +
-"where carrinho.codProd = Produtos.codProd; ");
+            instrucaoSQL = conexao.prepareStatement("update Produtos inner join carrinho on Produtos.codProd = ? carrinho.codProd SET Produtos.Qtde = ? Produtos.Qtde - carrinho.Qtde\n"
+                    + "where carrinho.codProd = Produtos.codProd; ");
 
-         instrucaoSQL.setInt(1, pCarrinho.getCodProd());
-           instrucaoSQL.setInt(2, pCarrinho.getQtde());
-
-            
-           
+            instrucaoSQL.setInt(1, pCarrinho.getCodProd());
+            instrucaoSQL.setInt(2, pCarrinho.getQtde());
 
             //Mando executar a instrução SQL
             int linhasAfetadas = instrucaoSQL.executeUpdate();
@@ -202,25 +198,23 @@ public class carrinhoDAO {
 
             conexao = DriverManager.getConnection(URL, "root", "root");
 
-            instrucaoSQL = conexao.prepareStatement("select carrinho.nome, carrinho.produto, carrinho.Qtde , Produtos.preco \n" +
-"from carrinho\n" +
-"inner join Produtos\n" +
-"on carrinho.codProd = carrinho.codProd ;");
-            
+            instrucaoSQL = conexao.prepareStatement("select carrinho.nome, carrinho.produto, carrinho.Qtde , Produtos.preco \n"
+                    + "from carrinho\n"
+                    + "inner join Produtos\n"
+                    + "on carrinho.codProd = carrinho.codProd ;");
+
             rs = instrucaoSQL.executeQuery();
 
             if (rs != null) {
 
                 while (rs.next()) {
                     carrinho c = new carrinho();
-                   // c.setId(rs.getInt("IdCompra"));
+                    // c.setId(rs.getInt("IdCompra"));
                     //c.setDataCompra(rs.getDate("DataEmissao"));
                     c.setNome(rs.getString("nome"));
                     c.setProduto(rs.getString("produto"));
                     c.setQtde(rs.getInt("Qtde"));
                     c.setValorUnit(rs.getDouble("preco"));
-                  
-    
 
                     listaCarrinho.add(c);
                 }

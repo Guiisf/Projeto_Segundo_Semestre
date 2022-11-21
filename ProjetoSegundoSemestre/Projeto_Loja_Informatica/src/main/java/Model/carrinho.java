@@ -35,7 +35,6 @@ public class carrinho {
         this.valorTotal = valorTotal;
         this.valorUnit = valorUnit;
     }
-    
 
     public Date getDataCompra() {
         return DataCompra;
@@ -100,7 +99,7 @@ public class carrinho {
         this.codProd = codProd;
         this.produto = produto;
         this.qtde = qtde;
-        
+
         this.valorTotal = valorTotal;
     }
 

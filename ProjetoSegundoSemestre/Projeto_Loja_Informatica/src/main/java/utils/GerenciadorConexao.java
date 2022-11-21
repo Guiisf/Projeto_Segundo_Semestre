@@ -5,38 +5,153 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * @author Guilherme.Ferreira
+ */
 public class GerenciadorConexao {
 
-    public static String STATUS = "Não conectado";
-    public static String DRIVER = "com.mysql.cj.jdbc.Driver";
+    /**
+     * @return the STATUS
+     */
+    public static String getSTATUS() {
+        return STATUS;
+    }
 
-    public static String SERVER = "localhost";
-    public static String DATABASE = "projetoPi";
+    /**
+     * @param aSTATUS the STATUS to set
+     */
+    public static void setSTATUS(String aSTATUS) {
+        STATUS = aSTATUS;
+    }
 
-    public static String LOGIN = "root";
-    public static String SENHA = "root";
+    /**
+     * @return the DRIVER
+     */
+    public static String getDRIVER() {
+        return DRIVER;
+    }
 
-    public static String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
+    /**
+     * @param aDRIVER the DRIVER to set
+     */
+    public static void setDRIVER(String aDRIVER) {
+        DRIVER = aDRIVER;
+    }
 
-    public static Connection CONEXAO;
+    /**
+     * @return the SERVER
+     */
+    public static String getSERVER() {
+        return SERVER;
+    }
+
+    /**
+     * @param aSERVER the SERVER to set
+     */
+    public static void setSERVER(String aSERVER) {
+        SERVER = aSERVER;
+    }
+
+    /**
+     * @return the DATABASE
+     */
+    public static String getDATABASE() {
+        return DATABASE;
+    }
+
+    /**
+     * @param aDATABASE the DATABASE to set
+     */
+    public static void setDATABASE(String aDATABASE) {
+        DATABASE = aDATABASE;
+    }
+
+    /**
+     * @return the LOGIN
+     */
+    public static String getLOGIN() {
+        return LOGIN;
+    }
+
+    /**
+     * @param aLOGIN the LOGIN to set
+     */
+    public static void setLOGIN(String aLOGIN) {
+        LOGIN = aLOGIN;
+    }
+
+    /**
+     * @return the SENHA
+     */
+    public static String getSENHA() {
+        return SENHA;
+    }
+
+    /**
+     * @param aSENHA the SENHA to set
+     */
+    public static void setSENHA(String aSENHA) {
+        SENHA = aSENHA;
+    }
+
+    /**
+     * @return the URL
+     */
+    public static String getURL() {
+        return URL;
+    }
+
+    /**
+     * @param aURL the URL to set
+     */
+    public static void setURL(String aURL) {
+        URL = aURL;
+    }
+
+    /**
+     * @return the CONEXAO
+     */
+    public static Connection getCONEXAO() {
+        return CONEXAO;
+    }
+
+    /**
+     * @param aCONEXAO the CONEXAO to set
+     */
+    public static void setCONEXAO(Connection aCONEXAO) {
+        CONEXAO = aCONEXAO;
+    }
+
+    private static String STATUS = "Não conectado";
+    private static String DRIVER = "com.mysql.cj.jdbc.Driver";
+
+    private static String SERVER = "localhost";
+    private static String DATABASE = "projetoPi";
+
+    private static String LOGIN = "root";
+    private static String SENHA = "root";
+
+    private static String URL = "jdbc:mysql://localhost:3306/projetoPi?useTimezone=true&serverTimezone=UTC&useSSL=false";
+
+    private static Connection CONEXAO;
 
     public GerenciadorConexao() {
     }
 
     public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
 
-        URL = "jdbc:mysql://" + SERVER + ":3306/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+        setURL("jdbc:mysql://" + getSERVER() + ":3306/" + getDATABASE() + "?useTimezone=true&serverTimezone=UTC&useSSL=false");
 
-        if (CONEXAO == null) {
+        if (getCONEXAO() == null) {
             try {
 
-                Class.forName(DRIVER);
-                CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
+                Class.forName(getDRIVER());
+                setCONEXAO(DriverManager.getConnection(getURL(), getLOGIN(), getSENHA()));
 
-                if (CONEXAO != null) {
-                    STATUS = "Conexão realizada com sucesso!";
+                if (getCONEXAO() != null) {
+                    setSTATUS("Conexão realizada com sucesso!");
                 } else {
-                    STATUS = "Não foi possivel realizar a conexão";
+                    setSTATUS("Não foi possivel realizar a conexão");
                 }
 
             } catch (ClassNotFoundException e) {
@@ -51,18 +166,18 @@ public class GerenciadorConexao {
         } else {
             try {
 
-                if (CONEXAO.isClosed()) {
-                    CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
+                if (getCONEXAO().isClosed()) {
+                    setCONEXAO(DriverManager.getConnection(getURL(), getLOGIN(), getSENHA()));
                 }
             } catch (SQLException ex) {
                 throw new SQLException("Falha ao fechar a conexão.");
             }
         }
-        return CONEXAO;
+        return getCONEXAO();
     }
 
     public static String getStatusConexao() {
-        return STATUS;
+        return getSTATUS();
     }
 
     public static boolean fecharConexao() throws SQLException {
@@ -70,13 +185,13 @@ public class GerenciadorConexao {
         boolean retorno = false;
 
         try {
-            if (CONEXAO != null) {
+            if (getCONEXAO() != null) {
                 if (!CONEXAO.isClosed()) {
-                    CONEXAO.close();
+                    getCONEXAO().close();
                 }
             }
 
-            STATUS = "Não conectado";
+            setSTATUS("Não conectado");
             retorno = true;
 
         } catch (SQLException e) {

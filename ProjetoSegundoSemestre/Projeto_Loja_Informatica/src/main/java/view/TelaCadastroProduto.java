@@ -18,8 +18,218 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaCadastroProduto extends javax.swing.JFrame {
 
-    public String modoTela = "Cadastro";
-    Produto objProduto;
+    /**
+     * @return the modoTela
+     */
+    public String getModoTela() {
+        return modoTela;
+    }
+
+    /**
+     * @param modoTela the modoTela to set
+     */
+    public void setModoTela(String modoTela) {
+        this.modoTela = modoTela;
+    }
+
+    /**
+     * @return the objProduto
+     */
+    public Produto getObjProduto() {
+        return objProduto;
+    }
+
+    /**
+     * @param objProduto the objProduto to set
+     */
+    public void setObjProduto(Produto objProduto) {
+        this.objProduto = objProduto;
+    }
+
+    /**
+     * @return the btnAdicionar
+     */
+    public javax.swing.JButton getBtnAdicionar() {
+        return btnAdicionar;
+    }
+
+    /**
+     * @param btnAdicionar the btnAdicionar to set
+     */
+    public void setBtnAdicionar(javax.swing.JButton btnAdicionar) {
+        this.btnAdicionar = btnAdicionar;
+    }
+
+    /**
+     * @return the btnSalvar
+     */
+    public javax.swing.JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
+    /**
+     * @param btnSalvar the btnSalvar to set
+     */
+    public void setBtnSalvar(javax.swing.JButton btnSalvar) {
+        this.btnSalvar = btnSalvar;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jTable1
+     */
+    public javax.swing.JTable getjTable1() {
+        return jTable1;
+    }
+
+    /**
+     * @param jTable1 the jTable1 to set
+     */
+    public void setjTable1(javax.swing.JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    /**
+     * @return the lblCod
+     */
+    public javax.swing.JLabel getLblCod() {
+        return lblCod;
+    }
+
+    /**
+     * @param lblCod the lblCod to set
+     */
+    public void setLblCod(javax.swing.JLabel lblCod) {
+        this.lblCod = lblCod;
+    }
+
+    /**
+     * @return the lblDesc
+     */
+    public javax.swing.JLabel getLblDesc() {
+        return lblDesc;
+    }
+
+    /**
+     * @param lblDesc the lblDesc to set
+     */
+    public void setLblDesc(javax.swing.JLabel lblDesc) {
+        this.lblDesc = lblDesc;
+    }
+
+    /**
+     * @return the lblID
+     */
+    public javax.swing.JLabel getLblID() {
+        return lblID;
+    }
+
+    /**
+     * @param lblID the lblID to set
+     */
+    public void setLblID(javax.swing.JLabel lblID) {
+        this.lblID = lblID;
+    }
+
+    /**
+     * @return the lblQuant
+     */
+    public javax.swing.JLabel getLblQuant() {
+        return lblQuant;
+    }
+
+    /**
+     * @param lblQuant the lblQuant to set
+     */
+    public void setLblQuant(javax.swing.JLabel lblQuant) {
+        this.lblQuant = lblQuant;
+    }
+
+    /**
+     * @return the lblValor
+     */
+    public javax.swing.JLabel getLblValor() {
+        return lblValor;
+    }
+
+    /**
+     * @param lblValor the lblValor to set
+     */
+    public void setLblValor(javax.swing.JLabel lblValor) {
+        this.lblValor = lblValor;
+    }
+
+    /**
+     * @return the txtDesc
+     */
+    public javax.swing.JTextField getTxtDesc() {
+        return txtDesc;
+    }
+
+    /**
+     * @param txtDesc the txtDesc to set
+     */
+    public void setTxtDesc(javax.swing.JTextField txtDesc) {
+        this.txtDesc = txtDesc;
+    }
+
+    /**
+     * @return the txtQuant
+     */
+    public javax.swing.JTextField getTxtQuant() {
+        return txtQuant;
+    }
+
+    /**
+     * @param txtQuant the txtQuant to set
+     */
+    public void setTxtQuant(javax.swing.JTextField txtQuant) {
+        this.txtQuant = txtQuant;
+    }
+
+    /**
+     * @return the txtValor
+     */
+    public javax.swing.JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    /**
+     * @param txtValor the txtValor to set
+     */
+    public void setTxtValor(javax.swing.JTextField txtValor) {
+        this.txtValor = txtValor;
+    }
+
+    private String modoTela = "Cadastro";
+    private Produto objProduto;
 
     /**
      * Creates new form CadastrarCliente
@@ -212,19 +422,19 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if (modoTela == "Criação") {
+        if (getModoTela() == "Criação") {
 
-            int codProd = Integer.parseInt(lblID.getText());
-            String descricao = txtDesc.getText();
-            int quantidade = Integer.parseInt(txtQuant.getText());
-            double valor = Double.parseDouble(txtValor.getText());
+            int codProd = Integer.parseInt(getLblID().getText());
+            String descricao = getTxtDesc().getText();
+            int quantidade = Integer.parseInt(getTxtQuant().getText());
+            double valor = Double.parseDouble(getTxtValor().getText());
 
-            objProduto.setDescricao(descricao);
-            objProduto.setQtde(quantidade);
-            objProduto.setPreco(valor);
+            getObjProduto().setDescricao(descricao);
+            getObjProduto().setQtde(quantidade);
+            getObjProduto().setPreco(valor);
 
             try {
-                produtosDAO.Salvar(objProduto);
+                produtosDAO.Salvar(getObjProduto());
                 JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!", "Produto Cadastrado", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Falha ao gravar no banco de dados\n" + e.getMessage(),
@@ -232,18 +442,18 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             }
 
         } else {
-            int codProd = Integer.parseInt(lblID.getText());
-            String descricao = txtDesc.getText();
-            int quantidade = Integer.parseInt(txtQuant.getText());
-            double valor = Double.parseDouble(txtValor.getText());
+            int codProd = Integer.parseInt(getLblID().getText());
+            String descricao = getTxtDesc().getText();
+            int quantidade = Integer.parseInt(getTxtQuant().getText());
+            double valor = Double.parseDouble(getTxtValor().getText());
 
-            objProduto.setDescricao(descricao);
-            objProduto.setQtde(quantidade);
-            objProduto.setPreco(valor);
+            getObjProduto().setDescricao(descricao);
+            getObjProduto().setQtde(quantidade);
+            getObjProduto().setPreco(valor);
 
             //Mando salvar no banco de dados usando a classe DAO
             try {
-                boolean retorno = produtosDAO.Salvar(objProduto);
+                boolean retorno = produtosDAO.Salvar(getObjProduto());
 
                 JOptionPane.showMessageDialog(this, "Produto Cadastrado com sucesso!", "Produto Cadastrado", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
@@ -259,7 +469,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtQuant.setText("Somente números");
+            this.getTxtQuant().setText("Somente números");
         }
     }//GEN-LAST:event_txtQuantKeyTyped
 
@@ -267,7 +477,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.txtValor.setText("Somente números");
+            this.getTxtValor().setText("Somente números");
         }
     }//GEN-LAST:event_txtValorKeyTyped
 
@@ -279,13 +489,13 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
 
-        int codProd = Integer.parseInt(lblID.getText());
-        String dscProduto = txtDesc.getText();
-        int qtd = Integer.parseInt(txtQuant.getText());
-        double preco =  Double.parseDouble(txtValor.getText());
+        int codProd = Integer.parseInt(getLblID().getText());
+        String dscProduto = getTxtDesc().getText();
+        int qtd = Integer.parseInt(getTxtQuant().getText());
+        double preco =  Double.parseDouble(getTxtValor().getText());
         double soma = qtd * preco;
 
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) getjTable1().getModel();
         modelo.addRow(new String[]{String.valueOf(codProd),dscProduto, String.valueOf(qtd), String.valueOf(preco), String.valueOf(soma)});
     }//GEN-LAST:event_btnAdicionarActionPerformed
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {
@@ -293,30 +503,30 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            this.lblCod.setText("Somente números no ID!");
+            this.getLblCod().setText("Somente números no ID!");
         }
     }
 
     private void txtDescricaoKeyReleased(java.awt.event.KeyEvent evt) {
         if (!txtQuant.getText().trim().equals("")) {
-            txtQuant.setText(this.txtQuant.getText().toUpperCase());
+            getTxtQuant().setText(this.getTxtQuant().getText().toUpperCase());
         }
     }
 
     private void txtDescricaoKeyTyped(java.awt.event.KeyEvent evt) {
-        if (txtQuant.getText().length() >= 10) {
+        if (getTxtQuant().getText().length() >= 10) {
             evt.consume();
-            lblCod.setText("Maximo de 10 caracteres atigido!");
+            getLblCod().setText("Maximo de 10 caracteres atigido!");
         }
 
         if (evt.getKeyChar() == '\'' || evt.getKeyChar() == '@') {
             evt.consume();
-            lblCod.setText(("Não é permitido apostrope"));
+            getLblCod().setText(("Não é permitido apostrope"));
         }
     }
 
     private void txtIDFocusGained(java.awt.event.FocusEvent evt) {
-        lblID.setBackground(yellow);
+        getLblID().setBackground(yellow);
     }
 
     /**

@@ -1,17 +1,19 @@
-
 package Model;
 
+/**
+ * @author Guilherme.Ferreira
+ */
 
-public class Produto { 
-    
+public class Produto {
+
     private String Descricao;
     private int qtde;
     private double preco;
     private int codigo;
-    
-    public Produto(){
-    
-}
+
+    public Produto() {
+
+    }
 
     public Produto(String Descricao, int qtde, double preco, int codigo) {
         this.Descricao = Descricao;
@@ -51,6 +53,5 @@ public class Produto {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
-   
+
 }

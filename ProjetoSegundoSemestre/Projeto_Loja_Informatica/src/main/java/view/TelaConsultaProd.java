@@ -17,7 +17,133 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaConsultaProd extends javax.swing.JFrame {
 
-    Produto objProduto;
+    /**
+     * @return the objProduto
+     */
+    public Produto getObjProduto() {
+        return objProduto;
+    }
+
+    /**
+     * @param objProduto the objProduto to set
+     */
+    public void setObjProduto(Produto objProduto) {
+        this.objProduto = objProduto;
+    }
+
+    /**
+     * @return the btnAlterar
+     */
+    public javax.swing.JButton getBtnAlterar() {
+        return btnAlterar;
+    }
+
+    /**
+     * @param btnAlterar the btnAlterar to set
+     */
+    public void setBtnAlterar(javax.swing.JButton btnAlterar) {
+        this.btnAlterar = btnAlterar;
+    }
+
+    /**
+     * @return the btnBuscarNomProd
+     */
+    public javax.swing.JButton getBtnBuscarNomProd() {
+        return btnBuscarNomProd;
+    }
+
+    /**
+     * @param btnBuscarNomProd the btnBuscarNomProd to set
+     */
+    public void setBtnBuscarNomProd(javax.swing.JButton btnBuscarNomProd) {
+        this.btnBuscarNomProd = btnBuscarNomProd;
+    }
+
+    /**
+     * @return the btnExcluir
+     */
+    public javax.swing.JButton getBtnExcluir() {
+        return btnExcluir;
+    }
+
+    /**
+     * @param btnExcluir the btnExcluir to set
+     */
+    public void setBtnExcluir(javax.swing.JButton btnExcluir) {
+        this.btnExcluir = btnExcluir;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the lblNomeProd
+     */
+    public javax.swing.JLabel getLblNomeProd() {
+        return lblNomeProd;
+    }
+
+    /**
+     * @param lblNomeProd the lblNomeProd to set
+     */
+    public void setLblNomeProd(javax.swing.JLabel lblNomeProd) {
+        this.lblNomeProd = lblNomeProd;
+    }
+
+    /**
+     * @return the tblResultProd
+     */
+    public javax.swing.JTable getTblResultProd() {
+        return tblResultProd;
+    }
+
+    /**
+     * @param tblResultProd the tblResultProd to set
+     */
+    public void setTblResultProd(javax.swing.JTable tblResultProd) {
+        this.tblResultProd = tblResultProd;
+    }
+
+    /**
+     * @return the txtNomeProd
+     */
+    public javax.swing.JTextField getTxtNomeProd() {
+        return txtNomeProd;
+    }
+
+    /**
+     * @param txtNomeProd the txtNomeProd to set
+     */
+    public void setTxtNomeProd(javax.swing.JTextField txtNomeProd) {
+        this.txtNomeProd = txtNomeProd;
+    }
+
+    private Produto objProduto;
 
     /**
      * Creates new form TelaConsultaProd
@@ -145,18 +271,16 @@ public class TelaConsultaProd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        int linhaSelecionada = tblResultProd.getSelectedRow();
+        int linhaSelecionada = getTblResultProd().getSelectedRow();
         if (linhaSelecionada >= 0) {
             //Pegar os dados da linha e passar para um objeto
             Produto objSelecionado = new Produto();
-            objSelecionado.setCodigo(Integer.parseInt(
-                    tblResultProd.getValueAt(linhaSelecionada, 0).toString())
+            objSelecionado.setCodigo(Integer.parseInt(getTblResultProd().getValueAt(linhaSelecionada, 0).toString())
             );
 
-            objSelecionado.setDescricao(tblResultProd.getValueAt(linhaSelecionada, 1).toString());
+            objSelecionado.setDescricao(getTblResultProd().getValueAt(linhaSelecionada, 1).toString());
 
-            objSelecionado.setQtde(Integer.parseInt(
-                    tblResultProd.getValueAt(linhaSelecionada, 2).toString())
+            objSelecionado.setQtde(Integer.parseInt(getTblResultProd().getValueAt(linhaSelecionada, 2).toString())
             );
 
             TelaCadastroProduto novaTela = new TelaCadastroProduto(objSelecionado);
@@ -166,10 +290,10 @@ public class TelaConsultaProd extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        int linhaSelecionada = tblResultProd.getSelectedRow();
+        int linhaSelecionada = getTblResultProd().getSelectedRow();
         if (linhaSelecionada > 0) {
             //Chmar o notafiscalDAO.excluir
-            int id = Integer.parseInt(tblResultProd.getValueAt(linhaSelecionada, 0).toString());
+            int id = Integer.parseInt(getTblResultProd().getValueAt(linhaSelecionada, 0).toString());
             boolean retorno = produtosDAO.excluir(id);
             if (retorno) {
                 JOptionPane.showMessageDialog(this, "Produto excluído com sucesso!");
@@ -182,13 +306,13 @@ public class TelaConsultaProd extends javax.swing.JFrame {
 
     private void btnBuscarNomProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNomProdActionPerformed
 
-        ArrayList<Produto> listaProduto = produtosDAO.consultarProdutos(txtNomeProd.getText());
+        ArrayList<Produto> listaProduto = produtosDAO.consultarProdutos(getTxtNomeProd().getText());
 
         DefaultTableModel tmProdutos = new DefaultTableModel();
         tmProdutos.addColumn("Codigo do produto");
         tmProdutos.addColumn("Nome do produto");
         tmProdutos.addColumn("Quantidade em estoque");
-        tblResultProd.setModel(tmProdutos);
+        getTblResultProd().setModel(tmProdutos);
 
         //Removo a coluna ID da View (JTable) mas mantenho na model para armazenar o ID
         //tblResultProd.removeColumn(tblResultProd.getColumnModel().getColumn(0));
@@ -199,9 +323,9 @@ public class TelaConsultaProd extends javax.swing.JFrame {
             tmProdutos.addRow(new Object[]{p.getCodigo(), p.getDescricao(), p.getQtde()});
         }
         //Defino o tamanho para cada coluna
-        tblResultProd.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblResultProd.getColumnModel().getColumn(1).setPreferredWidth(275);
-        tblResultProd.getColumnModel().getColumn(2).setPreferredWidth(100);
+        getTblResultProd().getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        getTblResultProd().getColumnModel().getColumn(1).setPreferredWidth(275);
+        getTblResultProd().getColumnModel().getColumn(2).setPreferredWidth(100);
     }//GEN-LAST:event_btnBuscarNomProdActionPerformed
 
     /**

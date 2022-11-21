@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import utils.GerenciadorConexao;
 
 /**
- *
- * @author guilh
+ * @author Guilherme.Ferreira
  */
 public class clienteDAO {
 
@@ -38,7 +37,7 @@ public class clienteDAO {
             //   instrucaoSQL.setInt(0, pCliente.getId());
             instrucaoSQL.setString(1, pCliente.getNome());
             instrucaoSQL.setString(2, pCliente.getCPFSomenteNumeros());
-             instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
+            instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
             instrucaoSQL.setString(4, pCliente.getSexo());
             instrucaoSQL.setString(5, pCliente.getEstado_civil());
             instrucaoSQL.setString(6, pCliente.getRua());
@@ -104,7 +103,7 @@ public class clienteDAO {
 
             instrucaoSQL.setString(1, pCliente.getNome());
             instrucaoSQL.setString(2, pCliente.getCPFSomenteNumeros());
-           instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
+            instrucaoSQL.setDate(3, new java.sql.Date(pCliente.getData_Nascimento().getTime()));
             instrucaoSQL.setString(4, pCliente.getSexo());
             instrucaoSQL.setString(5, pCliente.getEstado_civil());
             instrucaoSQL.setString(6, pCliente.getRua());
@@ -156,10 +155,8 @@ public class clienteDAO {
 
             instrucaoSQL = conexao.prepareStatement("DELETE FROM Clientes WHERE idCliente = ?");
 
-           
             instrucaoSQL.setInt(1, pID);
 
-            
             int linhasAfetadas = instrucaoSQL.executeUpdate();
 
             if (linhasAfetadas > 0) {

@@ -3,7 +3,24 @@ package Model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @author Guilherme.Ferreira
+ */
 public class Cliente {
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     private String nome;
     private int id;
@@ -55,15 +72,15 @@ public class Cliente {
     }
 
      public String getCPF() {
-        return cpf;
+        return getCpf();
     }
 
     public String getCPFSomenteNumeros() {
-        return cpf.replace(".", "").replace("-", "");
+        return getCpf().replace(".", "").replace("-", "");
     }
     
     public void setCPF(String pCPF) {
-        this.cpf = pCPF;
+        this.setCpf(pCPF);
     }
 
     public Date getData_Nascimento() {
